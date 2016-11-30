@@ -918,7 +918,7 @@ public class FrmBanHang extends javax.swing.JFrame {
         } else if (rbtnNu.isSelected()) {
             Gioitinh = 0;
         }
-        KhachHangDTO kh = new KhachHangDTO(0, maLoaiKH, TenKH, DiaChi, Gioitinh, SDT, loaiKH, moTa);
+        KhachHangDTO kh = new KhachHangDTO(maLoaiKH, TenKH, DiaChi, Gioitinh, SDT, loaiKH, moTa);
         KhachHangBLL.ThemKH(kh);
 
         ResultSet r1 = KhachHangDAL.LayDanhSachKhachHang();
