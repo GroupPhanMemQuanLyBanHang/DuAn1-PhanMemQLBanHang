@@ -18,7 +18,6 @@ public class KhachHangDTO {
    private String SDT;
    private  String LoaiKH;
   private String Mota;
-public  KhachHangDTO(){}
 
     public int getMaKH() {
         return MaKH;
@@ -84,6 +83,19 @@ public  KhachHangDTO(){}
         this.Mota = Mota;
     }
 
+    public KhachHangDTO() {
+    }
+
+    public KhachHangDTO(int MaLoaiKH, String TenKhachHang, String DiaChi, int Gioitinh, String SDT, String LoaiKH, String Mota) {
+        this.MaLoaiKH = MaLoaiKH;
+        this.TenKhachHang = TenKhachHang;
+        this.DiaChi = DiaChi;
+        this.Gioitinh = Gioitinh;
+        this.SDT = SDT;
+        this.LoaiKH = LoaiKH;
+        this.Mota = Mota;
+    }
+
     public KhachHangDTO(int MaKH, int MaLoaiKH, String TenKhachHang, String DiaChi, int Gioitinh, String SDT, String LoaiKH, String Mota) {
         this.MaKH = MaKH;
         this.MaLoaiKH = MaLoaiKH;
@@ -94,6 +106,9 @@ public  KhachHangDTO(){}
         this.LoaiKH = LoaiKH;
         this.Mota = Mota;
     }
+    
+    
+
    
     
 }
