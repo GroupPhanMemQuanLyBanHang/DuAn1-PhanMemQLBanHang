@@ -136,7 +136,7 @@ public class frmDangNhap extends javax.swing.JFrame {
             String tdn = txtTendangnhap.getText().trim();
             String mk = String.valueOf(pswMatkhau.getPassword()).trim();
             if (KiemTra(tdn, mk)) {
-                FrmChinh frm = new FrmChinh();
+                frm = new FrmChinh();
                 frm.show();
                 this.dispose();
             }else {
@@ -144,13 +144,13 @@ public class frmDangNhap extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_pswMatkhauKeyPressed
-    
+       public static FrmChinh frm;
     private void btnDangnhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangnhapActionPerformed
         // TODO add your handling code here:
         String tdn = txtTendangnhap.getText().trim();
         String mk = String.valueOf(pswMatkhau.getPassword()).trim();
         if (KiemTra(tdn, mk)) {
-            FrmChinh frm = new FrmChinh();
+            frm = new FrmChinh();
             frm.show();
             this.dispose();
         }else {
@@ -158,7 +158,9 @@ public class frmDangNhap extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDangnhapActionPerformed
     
+    
     public static int quyen = 0;
+    public static String HoTen = "";
  private boolean KiemTra(String dangnhap, String matkhau) {    
         boolean kq = false;
        
@@ -173,6 +175,7 @@ public class frmDangNhap extends javax.swing.JFrame {
                 kq = true;
                 quyen = rs.getInt("MaQuyen");
                 System.out.println(quyen);
+                HoTen = rs.getString("TenNhanVien");
             }
            
         } catch (SQLException ex) {

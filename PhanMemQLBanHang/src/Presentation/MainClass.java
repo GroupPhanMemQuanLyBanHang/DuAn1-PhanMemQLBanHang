@@ -19,9 +19,10 @@ public class MainClass {
      * @param args the command line arguments
      */
     public static ConnectionDB Connection = new ConnectionDB();
+    public static frmDangNhap frm = new frmDangNhap();
     public static void main(String[] args) {
         // TODO code application logic here
-          frmDangNhap frm = new frmDangNhap();
+          
            frm.show();
     }
      public static void ThongBao(String noiDung, String tieuDe, int icon){
