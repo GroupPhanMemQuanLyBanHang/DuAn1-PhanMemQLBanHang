@@ -36,8 +36,11 @@ public class FrmBanHang extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         btngGioitinh = new javax.swing.ButtonGroup();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        Menunho = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         BanHang = new javax.swing.JTabbedPane();
         jpnBanHang = new javax.swing.JPanel();
@@ -136,6 +139,14 @@ public class FrmBanHang extends javax.swing.JFrame {
         jTable5 = new javax.swing.JTable();
         jLabel22 = new javax.swing.JLabel();
 
+        Menunho.setText("Thêm");
+        Menunho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenunhoActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(Menunho);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -204,10 +215,7 @@ public class FrmBanHang extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Tên Hàng", "Số Lượng", "Đơn Giá", "Thành Tiền"
@@ -245,6 +253,10 @@ public class FrmBanHang extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jPopupMenu1, org.jdesktop.beansbinding.ObjectProperty.create(), tblTenSanPham, org.jdesktop.beansbinding.BeanProperty.create("componentPopupMenu"));
+        bindingGroup.addBinding(binding);
+
         tblTenSanPham.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 tblTenSanPhamMousePressed(evt);
@@ -887,6 +899,8 @@ public class FrmBanHang extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        bindingGroup.bind();
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -1062,6 +1076,29 @@ public class FrmBanHang extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tblTenSanPhamMousePressed
 
+    private void MenunhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenunhoActionPerformed
+        // TODO add your handling code here:
+        int Vitriđonguocchon = tblTenSanPham.getSelectedRow();
+        String maKH = tblTenSanPham.getValueAt(Vitriđonguocchon, 0).toString();
+        
+        String info[] = SanPhamBLL.InputDialogSoLuongSanPham("Nhập thông tin sản phẩm", maKH);
+         if(info != null){
+            System.out.println( "Mã sản phẩm: " + info[0]);
+           System.out.println( "Nhập Ghi Chú: " + info[1]);
+            
+            SanPhamDTO sp = new SanPhamDTO();
+            sp = SanPhamBLL.LaySanPhamTheoMaSP(info[0]);
+            
+            int viTriTrung = SanPhamBLL.ViTriSanPhamBiTrung(tblTenSanPham, maKH);
+            if(viTriTrung == -1){
+                SanPhamBLL.ThemSanPhamVaoBang(tblTenSanPham, sp, info[1], info[2]);
+            }else{
+                SanPhamBLL.AddProductDuplicate(tblTenSanPham,
+                        viTriTrung, Integer.parseInt(info[1]));
+            }
+            }
+    }//GEN-LAST:event_MenunhoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1100,6 +1137,7 @@ public class FrmBanHang extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane BanHang;
+    private javax.swing.JMenuItem Menunho;
     private javax.swing.JButton bntSua;
     private javax.swing.JButton bntThem;
     private javax.swing.JButton bntXoa;
@@ -1149,6 +1187,7 @@ public class FrmBanHang extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1197,5 +1236,6 @@ public class FrmBanHang extends javax.swing.JFrame {
     private javax.swing.JTextField txtTenKH;
     private javax.swing.JTextField txtTenKhachHang;
     private javax.swing.JTextField txtmota;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

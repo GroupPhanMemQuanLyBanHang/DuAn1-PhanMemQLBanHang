@@ -7,6 +7,7 @@ package DAL;
 
 import DTO.SanPhamDTO;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -26,5 +27,30 @@ public class SanPhamDAL {
             rs =ConnectionDB.ExcuteQueryGetTable(Sql);
             return  rs;
         }
+        public static SanPhamDTO LaySanPhamtheomaSanPham(String maSP){
+        ResultSet rs;
+        String cauTruyVanSQL = "Select * from SanPham where MaLoaiSanPham = '" + maSP + "'";
         
+        rs = ConnectionDB.ExcuteQueryGetTable(cauTruyVanSQL);
+        SanPhamDTO sp = new SanPhamDTO();
+        try {
+            while(rs.next()){
+                sp.setIdSanPham(rs.getInt("IdSanPham"));
+                sp.setMaSanPham(rs.getInt("maSP"));
+                sp.setMaLoaiSanPham(rs.getInt("maLoaiSP"));
+                sp.setTenSanPham(rs.getString("tenSP"));
+                sp.setEmail(rs.getString("email"));
+                sp.setHanBaoHanh(rs.getString("hanbaohanh"));
+                sp.setSoLuong(rs.getInt("soLuong"));
+                sp.setDonViTinh(rs.getString("donViTinh"));
+                sp.setGiaBan(rs.getString("giaBan"));
+                sp.setGiaNhap(rs.getString("giaNhap"));
+                sp.setMoTa(rs.getString("moTa"));
+               }
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+        
+        return sp;
+    }
 }

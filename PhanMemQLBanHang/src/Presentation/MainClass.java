@@ -21,7 +21,7 @@ public class MainClass {
     public static ConnectionDB Connection = new ConnectionDB();
     public static void main(String[] args) {
         // TODO code application logic here
-          frmDangNhap frm = new frmDangNhap();
+          FrmChinh  frm = new FrmChinh();
            frm.show();
     }
      public static void ThongBao(String noiDung, String tieuDe, int icon){
