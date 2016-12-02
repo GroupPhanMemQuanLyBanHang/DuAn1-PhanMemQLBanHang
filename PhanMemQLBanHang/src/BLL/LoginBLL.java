@@ -6,8 +6,13 @@
 package BLL;
 
 import DAL.LoginDAL;
+import Presentation.FrmChinh;
+import Presentation.MainClass;
+import Presentation.frmDangNhap;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import sun.applet.Main;
 
 /**
  *
@@ -38,4 +43,22 @@ public class LoginBLL {
     public static int quyen = 0;
     public static  int manv = 0;
     public static  String matkhau = "";
+    public static void thoat(){
+        
+        int kq=JOptionPane.showConfirmDialog(null, "Bạn Muốn Thoát Chương Trình ?","WARNING",JOptionPane.YES_NO_OPTION);
+        if(kq==0)
+        {
+        System.exit(0);
+        }
+    }
+    public static void DangXuat(){
+        int kq = JOptionPane.showConfirmDialog(null, "Bạn Có Muốn Đăng Xuất ?","WARNING",JOptionPane.YES_NO_OPTION);
+        if(kq==0)
+        {
+            frmDangNhap.frm.hide();
+            
+            MainClass.frm.show();
+            
+        }
+    }
 }

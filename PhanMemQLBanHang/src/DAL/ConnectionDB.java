@@ -16,22 +16,26 @@ import java.sql.Statement;
  * @author Ridotoji Pham
  */
 public class ConnectionDB {
-    String SQLConnection = "jdbc:sqlserver://DESKTOP-5SPFU1A"
-            + ";databaseName=QuanLyBanHang;user=sa;password=123;CharacterSet=UTF-8";
-     static Connection conn;
-     public  ConnectionDB(){
-         try {
-             DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
-             conn = DriverManager.getConnection(SQLConnection);
-              if (conn != null) {
-                System.out.println("Kết nối CSDL thành công!");
-            }else{
-                System.out.println("Kết nối CSDL thất bại!");    
+    String connectionString = "jdbc:sqlserver://DESKTOP-5SPFU1A:1433;"
+            + "databaseName=QuanLyBanHang;user=sa;password=123;";
+    static Connection conn;
+
+    public ConnectionDB() {
+
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection(connectionString);
+
+            if (conn != null) {
+                System.out.println("Kết nối CSDL SQL Server thành công!");
             }
-         } catch (SQLException e) {
-             System.out.println(e.toString());
-         }
-     }
+
+        } catch (ClassNotFoundException ex) {
+            System.out.println(ex.toString());
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+    }
      /**
      * Hàm thực thi câu lệnh Select
      * Đầu vào: @CauTruyVanSQL - Câu truy vấn Select cần thực thi

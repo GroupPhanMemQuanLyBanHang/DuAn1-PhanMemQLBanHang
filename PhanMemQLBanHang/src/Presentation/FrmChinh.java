@@ -5,6 +5,7 @@
  */
 package Presentation;
 
+import BLL.LoginBLL;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -30,6 +31,7 @@ public class FrmChinh extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblXinChao = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -49,15 +51,23 @@ public class FrmChinh extends javax.swing.JFrame {
         btnDangxuat = new javax.swing.JMenuItem();
         mngioithieu = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 255));
         setMinimumSize(new java.awt.Dimension(800, 500));
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
         getContentPane().setLayout(null);
+
+        lblXinChao.setForeground(new java.awt.Color(255, 255, 255));
+        lblXinChao.setText("a");
+        getContentPane().add(lblXinChao);
+        lblXinChao.setBounds(150, 100, 230, 16);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1479923089_Shopping_cart.png"))); // NOI18N
         jButton1.setText("Bán hàng");
@@ -81,7 +91,6 @@ public class FrmChinh extends javax.swing.JFrame {
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Hang hoa.png"))); // NOI18N
         jButton2.setText("Hàng hóa");
-        jButton2.setPreferredSize(new java.awt.Dimension(135, 53));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -219,9 +228,9 @@ public class FrmChinh extends javax.swing.JFrame {
 
     private void btnDangxuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangxuatActionPerformed
         // TODO add your handling code here:
-                frmDangNhap frm = new frmDangNhap();
-               frm.show();
-                       this.dispose();
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE );
+        LoginBLL.DangXuat();
+        
 
 
     }//GEN-LAST:event_btnDangxuatActionPerformed
@@ -287,13 +296,19 @@ public class FrmChinh extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
          if(frmDangNhap.quyen == 1){
-            ThongBao("Tôi Là Quản Lý", "Thông báo quyền", 2);
+            lblXinChao.setText("Xin Chào, " + frmDangNhap.HoTen);
          }else if(frmDangNhap.quyen == 2){
-            ThongBao("Tôi là Nhân Viên", "Thông báo quyền", 2);
+            lblXinChao.setText("Xin Chào, " + frmDangNhap.HoTen);
             btnNhanVien.setEnabled(false);
             btnThuChi.setEnabled(false);
         }
     }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE );
+        LoginBLL.thoat();
+    }//GEN-LAST:event_formWindowClosing
 private void ThongBao(String noiDungThongBao, String tieuDeThongBao, int icon) {
         JOptionPane.showMessageDialog(new JFrame(), noiDungThongBao,
                 tieuDeThongBao, icon);
@@ -350,6 +365,7 @@ private void ThongBao(String noiDungThongBao, String tieuDeThongBao, int icon) {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel lblXinChao;
     private javax.swing.JMenu mngioithieu;
     private javax.swing.JMenu mnhethong;
     private javax.swing.JMenuItem mnuDonHang;

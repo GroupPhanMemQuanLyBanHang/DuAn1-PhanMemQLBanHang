@@ -61,3 +61,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+/PhanMemQLBanHang/dist/
+/PhanMemQLBanHang/build/
+/PhanMemQLBanHang/nbproject/private/
