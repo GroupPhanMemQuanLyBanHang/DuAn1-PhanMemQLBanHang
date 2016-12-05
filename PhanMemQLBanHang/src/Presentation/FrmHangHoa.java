@@ -311,6 +311,8 @@ public class FrmHangHoa extends javax.swing.JFrame {
         }
         ResultSet rs = HangHoaSPBLL.LayTatCaDonhang();
         //Đọc lại dữ liệu và đổ lại dữ liệu
+        
+        
        HangHoaSPBLL.DoDuLieuVaoJTableDonHang(rs, tbldonhang);
     }//GEN-LAST:event_btnxoadonhangMouseClicked
 
