@@ -7,6 +7,7 @@ package DAL;
 
 import DTO.KhachHangDTO;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -47,5 +48,28 @@ public class KhachHangDAL {
         public static void XoaKhachHang(int MaKhachHang) {
         String cauTruyVan = "delete KhachHang where MaKH=" + MaKhachHang;
         ConnectionDB.ExcuteQueryUpdate(cauTruyVan);
+    }
+           public static KhachHangDTO LayKhachHangtheoMaDH(String maKH){
+        ResultSet rs;
+        String cauTruyVanSQL = "Select * from khachhang where MaKH = '" + maKH + "'";
+        
+        rs = ConnectionDB.ExcuteQueryGetTable(cauTruyVanSQL);
+        KhachHangDTO sp = new KhachHangDTO();
+        try {
+            while(rs.next()){
+                sp.setMaKH(rs.getInt("MaKH"));
+                sp.setMaLoaiKH(rs.getInt("MaLoaiKH"));
+                sp.setTenKhachHang(rs.getString("TenKH"));
+                sp.setDiaChi(rs.getString("DiaChi"));
+                sp.setGioitinh(rs.getInt("GioiTinh"));
+                sp.setSDT(rs.getString("SoDienThoai"));
+                sp.setLoaiKH(rs.getString("LoaiKH"));
+                sp.setMota(rs.getString("MoTa"));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+        
+        return sp;
     }
 }
