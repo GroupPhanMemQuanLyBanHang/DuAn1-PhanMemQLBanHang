@@ -923,7 +923,6 @@ public class FrmBanHang extends javax.swing.JFrame {
         int maLoaiKH = Integer.parseInt(txtMLKH.getText());
         String TenKH = txtTenKhachHang.getText();
         String DiaChi = txtDiachi.getText();
-
         String SDT = txtSODienThoai.getText();
         String loaiKH = txtLoaiKhachHang.getText();
         String moTa = txtmota.getText();
