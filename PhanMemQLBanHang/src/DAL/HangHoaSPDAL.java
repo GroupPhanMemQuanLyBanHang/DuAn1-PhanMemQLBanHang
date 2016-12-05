@@ -80,5 +80,10 @@ public class HangHoaSPDAL {
         
         return sp;
     }
-      
+      public static ResultSet LayThongTinSPDuaVaoMaLoai(String MaLoaiSP) {
+        ResultSet rs;
+        String SQLSelect = "select * from SanPham where MaLoaiSanPham  = "+MaLoaiSP+" ";
+        rs = ConnectionDB.ExcuteQueryGetTable(SQLSelect);
+        return rs;
+    }  
 }

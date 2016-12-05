@@ -7,6 +7,7 @@ package BLL;
 
 import DAL.KhachHangDAL;
 import DTO.KhachHangDTO;
+import Presentation.MainClass;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JTable;
@@ -107,5 +108,19 @@ public class KhachHangBLL {
 
     public static void XoaKhachHang(int maCanXoa) {
         KhachHangDAL.XoaKhachHang(maCanXoa);
+    }
+     public static ResultSet LayTatCaKH(){
+        ResultSet rs;
+        rs = KhachHangDAL.LayDanhSachKhachHang();
+        return rs;
+    }
+      public static KhachHangDTO LayDonHangtheoMaDH(String MaDH){
+        KhachHangDTO DH = new KhachHangDTO();
+        if(!MaDH.equals("")){
+            DH = KhachHangDAL.LayKhachHangtheoMaDH(MaDH);
+        }else{
+            MainClass.ThongBao("Chưa Nhập Khách hàng", MaDH, 0);
+        }
+        return DH;
     }
 }

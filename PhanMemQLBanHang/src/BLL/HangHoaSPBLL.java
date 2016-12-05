@@ -53,11 +53,13 @@ public class HangHoaSPBLL {
         item[4] = sp.getGiaNhap();
         item[5] = sp.getGiaBan();
         item[6] = sp.getHanBaoHanh();
-        
-
         tableModel.addRow(item);
+}
+     public static ResultSet LaySanPhamTheoMaLoaiSP(String maLoaiSP){
+        ResultSet rs;
+        rs = HangHoaSPDAL.LayThongTinSPDuaVaoMaLoai(maLoaiSP);
         
-        
+        return rs;
     }
     // Hàm tính số tiền cần add 
     public static double TinhTien(JTable tblCTHD, int chiSoCotThanhTien){
@@ -194,9 +196,7 @@ public class HangHoaSPBLL {
         
         return rs;
     }
-    
-   
-      public static void DoDuLieuVaoJTableSuasanpham(ResultSet rs, JTable tableTam){
+   public static void DoDuLieuVaoJTableSuasanpham(ResultSet rs, JTable tableTam){
         Object []objs = new Object[]{"ID Sản Phẩm", "Mã Loại Sản Phẩm", "Tên Sản Phẩm","Email","Ngày Nhập","Giá Nhập","Số Lượng","Giá bán","Đơn vị tính","Hạn Bảo Hành","Mô Tả"};
         DefaultTableModel tableModel = new DefaultTableModel(objs, 0);
         tableTam.setModel(tableModel);
@@ -229,5 +229,27 @@ public class HangHoaSPBLL {
             MainClass.ThongBao("Chưa Nhập Khách hàng", MaDH, 0);
         }
         return DH;
+    }
+        public static void DoDuLieuVaoJTableBangtonkho(ResultSet rs, JTable tableTam){
+        Object []objs = new Object[]{"Tên Sản Phẩm", "Đơn vị tính", "Số Lượng","Giá mua vào","Trị giá Sản Phẩm","Hạn Bảo Hành"};
+        DefaultTableModel tableModel = new DefaultTableModel(objs, 0);
+        tableTam.setModel(tableModel);
+           
+        try {
+            while(rs.next()){
+                Object[] item = new Object[6];
+                item[0] = rs.getString("TenSanPham");
+                item[1] = rs.getString("DonViTinh");
+                item[2] = rs.getInt("SoLuong");
+                item[3]= rs.getString("GiaNhap");
+                item[4] = rs.getString("GiaBan");
+                item[5] = rs.getString("HanBaoHanh");
+                tableModel.addRow(item);
+               
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+       
     }
 }
