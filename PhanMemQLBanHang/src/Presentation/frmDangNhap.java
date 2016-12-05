@@ -160,7 +160,7 @@ public class frmDangNhap extends javax.swing.JFrame {
     
     
     public static int quyen = 0;
-    public static String HoTen = "";  
+    public static String HoTen = "";
  private boolean KiemTra(String dangnhap, String matkhau) {    
         boolean kq = false;
        
@@ -176,7 +176,6 @@ public class frmDangNhap extends javax.swing.JFrame {
                 quyen = rs.getInt("MaQuyen");
                 System.out.println(quyen);
                 HoTen = rs.getString("TenNhanVien");
-                
             }
            
         } catch (SQLException ex) {
