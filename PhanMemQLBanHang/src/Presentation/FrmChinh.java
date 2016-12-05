@@ -230,9 +230,6 @@ public class FrmChinh extends javax.swing.JFrame {
         // TODO add your handling code here:
         setDefaultCloseOperation(DISPOSE_ON_CLOSE );
         LoginBLL.DangXuat();
-        
-
-
     }//GEN-LAST:event_btnDangxuatActionPerformed
 
     private void mngioithieuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mngioithieuMouseClicked
@@ -299,8 +296,8 @@ public class FrmChinh extends javax.swing.JFrame {
             lblXinChao.setText("Xin Chào, " + frmDangNhap.HoTen);
          }else if(frmDangNhap.quyen == 2){
             lblXinChao.setText("Xin Chào, " + frmDangNhap.HoTen);
-            btnNhanVien.setEnabled(false);
-            btnThuChi.setEnabled(false);
+            btnNhanVien.setEnabled(true);
+            btnThuChi.setEnabled(true);
         }
     }//GEN-LAST:event_formWindowOpened
 

@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class NhanVienBLL {
     public static void DoDuLieuVaoJTableQuyentrongBangNhanvien(ResultSet rs, JTable tableTam){
-        Object []objs = new Object[]{"Tên Nhân Viên","Mã Nhân Viên","Số Điện thoại","Địa Chỉ","Email","Ghi chú"};
+        Object []objs = new Object[]{"Tên Nhân Viên","Mã Nhân Viên","Số Điện thoại","Địa Chỉ","Chức vụ","Ghi chú"};
         DefaultTableModel tableModel = new DefaultTableModel(objs, 0);
         tableTam.setModel(tableModel);
         try {
@@ -29,7 +29,7 @@ public class NhanVienBLL {
                  item[1] = rs.getInt("MaNhanVien");
                   item[2] = rs.getString("SoDienThoai");
                    item[3] = rs.getString("DiaChi");
-                    item[4] = rs.getString("Imei");
+                    item[4] = rs.getString("ChucVu");
                      item[5] = rs.getString("MoTa");
                 tableModel.addRow(item);
             }

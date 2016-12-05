@@ -123,7 +123,7 @@ public class FrmNhanVien extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Họ Tên", "Mã NV", "Điện thoại", "Địa chỉ", "Email", "Ghi chú"
+                "Họ Tên", "Mã NV", "Điện thoại", "Địa chỉ", "Chức Vụ", "Ghi chú"
             }
         ));
         jScrollPane2.setViewportView(tblnhanvien);

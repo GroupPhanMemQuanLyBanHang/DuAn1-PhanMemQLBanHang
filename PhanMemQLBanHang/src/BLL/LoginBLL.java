@@ -23,9 +23,6 @@ public class LoginBLL {
         boolean kq = false;
         ResultSet rs;
         rs = LoginDAL.LayNVTheoMa(tdn,mk);
-        
-        
-        
         try {
             if(rs.next()){
                 kq=true;
