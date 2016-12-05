@@ -18,6 +18,7 @@ import java.text.MessageFormat;
 import javax.swing.JTable;
 import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
 import java.awt.print.*;
+import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -237,10 +238,6 @@ public class FrmHangHoa extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(cbbNhomHang, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 844, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -249,7 +246,11 @@ public class FrmHangHoa extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(cbbNhomHang, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 844, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,8 +258,8 @@ public class FrmHangHoa extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cbbNhomHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(78, 78, 78)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(218, 218, 218)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
@@ -303,11 +304,7 @@ public class FrmHangHoa extends javax.swing.JFrame {
     private void btnxoadonhangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnxoadonhangMouseClicked
         // TODO add your handling code here:
           int[] cacViTriDuocChon = tbldonhang.getSelectedRows();
-        //Dùng vòng lặp để duyệt tất cả các phần tử trong mảng, 
-        //phần tử ở vị trí thứ i là cacViTriDuocChon[i]. Đây chính là vị trí dòng được chọn
-        for(int i = 0; i < cacViTriDuocChon.length; i++){
-            //Lấy mã loại trong Table LoaiSanPham
-            //Hàm getValueAt(row, column): lấy giá trị tại dòng nào và cột nào
+     for(int i = 0; i < cacViTriDuocChon.length; i++){
             String MaLoaiCanXoa = tbldonhang.getValueAt(cacViTriDuocChon[i], 0).toString();
             //Gọi hàm xóa ở tầng xử lý
          HangHoaSPBLL.XoaDonHang(MaLoaiCanXoa);
@@ -331,11 +328,15 @@ public class FrmHangHoa extends javax.swing.JFrame {
           ResultSet rs = HangHoaSPBLL.LayTatCaDonhang();
          HangHoaSPBLL.DoDuLieuVaoJTableDonHang(rs,tbldonhang);
          
+           ResultSet rs3 = HangHoaSPBLL.LayTatCaDonhang();
+         HangHoaSPBLL.DoDuLieuVaoJTableBangtonkho(rs3,tbltonkhoHangHoa);
+         
          ResultSet rs1 = HangHoaSPBLL.LayTatCaLSP();
         ComboboxBLL.LoadDuLieuCombobox(rs1, cbbNhomHang, "TenLoaiSanPham", "MaLoaiSanPham");
         
         ResultSet rs2 = HangHoaSPBLL.LayTatCaLSP();
         ComboboxBLL.LoadDuLieuCombobox(rs2, cbbLoaiHanghoa, "TenLoaiSanPham", "MaLoaiSanPham");
+     
     }//GEN-LAST:event_formWindowOpened
 
     private void cbbNhomHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbbNhomHangMouseClicked
@@ -343,7 +344,11 @@ public class FrmHangHoa extends javax.swing.JFrame {
     }//GEN-LAST:event_cbbNhomHangMouseClicked
 
     private void cbbNhomHangItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbNhomHangItemStateChanged
-    
+    if(evt.getStateChange() == 1){
+            String maLoaiSPDuocChon = ComboboxBLL.getSelectedItemID(cbbNhomHang);
+            ResultSet rs = HangHoaSPBLL.LaySanPhamTheoMaLoaiSP(maLoaiSPDuocChon);
+            HangHoaSPBLL.DoDuLieuVaoJTableDonHang(rs, tbltonkhoHangHoa);
+        }
     }//GEN-LAST:event_cbbNhomHangItemStateChanged
 
     private void tbldonhangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbldonhangMouseClicked
@@ -354,6 +359,7 @@ public class FrmHangHoa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbbLoaiHanghoaMouseClicked
 
+    
     private void btnxuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnxuatActionPerformed
         // TODO add your handling code here:
           MessageFormat Header = new MessageFormat("Report Print");
@@ -366,19 +372,10 @@ public class FrmHangHoa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnxuatActionPerformed
 
     private void cbbLoaiHanghoaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbLoaiHanghoaItemStateChanged
-        // TODO add your handling code here:
-       /* DefaultTableModel def = (DefaultTableModel) tbldonhang.getModel();
-        while (def.getColumnCount()> -1) {
-            int MaLoai = tbldonhang.getSelectedRow();
-            ResultSet rs = HangHoaSPBLL.LayTatCaDonhang();
-           ComboboxBLL.LoadDuLieuCombobox(rs, cbbNhomHang, "TenSanPham", "IDSanPham");
-            
-            def.setRowCount(MaLoai);
-        }*/
-         if(evt.getStateChange() == 1){
-            String maKH = ComboboxBLL.getSelectedItemID(cbbLoaiHanghoa);
-           HangHoaSPDTO kh = HangHoaSPBLL.LaySanPhamtheoMaDH(maKH);
-            tbldonhang.getModel();
+ if(evt.getStateChange() == 1){
+            String maLoaiSPDuocChon = ComboboxBLL.getSelectedItemID(cbbLoaiHanghoa);
+            ResultSet rs = HangHoaSPBLL.LaySanPhamTheoMaLoaiSP(maLoaiSPDuocChon);
+            HangHoaSPBLL.DoDuLieuVaoJTableDonHang(rs, tbldonhang);
         }
     }//GEN-LAST:event_cbbLoaiHanghoaItemStateChanged
       
