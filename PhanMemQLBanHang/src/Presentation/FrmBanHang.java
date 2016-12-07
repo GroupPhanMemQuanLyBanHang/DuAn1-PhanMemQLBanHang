@@ -10,6 +10,7 @@ import DAL.KhachHangDAL;
 import DAL.SanPhamDAL;
 import DTO.KhachHangDTO;
 import DTO.SanPhamDTO;
+import FormNho.FrmHoaDon;
 import FormNho.FrmSuaKhachHang;
 import FormNho.FrmThemKhachHang;
 import java.sql.ResultSet;
@@ -138,6 +139,17 @@ public class FrmBanHang extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable5 = new javax.swing.JTable();
         jLabel22 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+
+        jPopupMenu1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jPopupMenu1AncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
         Menunho.setText("Thêm");
         Menunho.addActionListener(new java.awt.event.ActionListener() {
@@ -212,6 +224,11 @@ public class FrmBanHang extends javax.swing.JFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/thanh toan.png"))); // NOI18N
         jButton1.setText("Thanh Toán");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -865,11 +882,18 @@ public class FrmBanHang extends javax.swing.JFrame {
                         .addComponent(jButton8)
                         .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         BanHang.addTab("Công nợ", jpnCongNo);
+
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -878,12 +902,17 @@ public class FrmBanHang extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(BanHang, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(363, 363, 363)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(BanHang, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(BanHang, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(jButton2))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1077,26 +1106,33 @@ public class FrmBanHang extends javax.swing.JFrame {
 
     private void MenunhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenunhoActionPerformed
         // TODO add your handling code here:
-        int Vitriđonguocchon = tblTenSanPham.getSelectedRow();
-        String maKH = tblTenSanPham.getValueAt(Vitriđonguocchon, 0).toString();
         
-        String info[] = SanPhamBLL.InputDialogSoLuongSanPham("Nhập thông tin sản phẩm", maKH);
-         if(info != null){
-            System.out.println( "Mã sản phẩm: " + info[0]);
-           System.out.println( "Nhập Ghi Chú: " + info[1]);
-            
-            SanPhamDTO sp = new SanPhamDTO();
-            sp = SanPhamBLL.LaySanPhamTheoMaSP(info[0]);
-            
-            int viTriTrung = SanPhamBLL.ViTriSanPhamBiTrung(tblTenSanPham, maKH);
-            if(viTriTrung == -1){
-                SanPhamBLL.ThemSanPhamVaoBang(tblTenSanPham, sp, info[1], info[2]);
-            }else{
-                SanPhamBLL.AddProductDuplicate(tblTenSanPham,
-                        viTriTrung, Integer.parseInt(info[1]));
-            }
-            }
     }//GEN-LAST:event_MenunhoActionPerformed
+
+    private void jPopupMenu1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPopupMenu1AncestorAdded
+        // TODO add your handling code here:
+        int vitrichon = tblTenSanPham.getSelectedRow();
+        String tensp = tblTenSanPham.getValueAt(vitrichon, 0).toString();
+        ResultSet  rs = SanPhamDAL.LaySPTheoTenSP(tensp);
+        int soluong = Integer.parseInt(jSpinner1.getValue().toString());
+        SanPhamBLL.DoDuLieuVaoJTableSanPham(rs, jTable1, soluong);
+        
+    }//GEN-LAST:event_jPopupMenu1AncestorAdded
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        int vitrichon = tblTenSanPham.getSelectedRow();
+        String tensp = tblTenSanPham.getValueAt(vitrichon, 0).toString();
+        ResultSet  rs = SanPhamDAL.LaySPTheoTenSP(tensp);
+        int soluong = Integer.parseInt(jSpinner1.getValue().toString());
+        SanPhamBLL.DoDuLieuVaoJTableSanPham(rs, jTable1, soluong);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        FrmHoaDon frm = new FrmHoaDon();
+        frm.show();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1142,6 +1178,7 @@ public class FrmBanHang extends javax.swing.JFrame {
     private javax.swing.JButton bntXoa;
     private javax.swing.ButtonGroup btngGioitinh;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
