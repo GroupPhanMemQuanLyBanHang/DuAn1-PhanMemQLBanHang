@@ -24,8 +24,8 @@ public class NhanVienDAL {
         + ",ChucVu = N'"+NV.getChucvu()+"',NgaySinh = '"+NV.getNgaySinh()+"',NgayVaoLam = '"+NV.getNgayVaolam()+"',UserName = N'"+NV.getUsername()+"',Password = N'"+NV.getPassword()+"',MaQuyen = '"+NV.getMaQuyen()+"',MoTa = N'"+NV.getMota()+"' where MaNhanVien = " + NV.getMaNhanVien();            
         ConnectionDB.ExcuteQueryUpdate(SQLSua);
     }
-        public static void CauTruyVanXoaNhanVien(String NV) {
-            String SQLxoa = "delete from NhanVien where TenNhanVien =" +""+ NV+"";
+        public static void CauTruyVanXoaNhanVien(int NV) {
+            String SQLxoa = "delete from NhanVien where MaNhanVien =" + NV;
         ConnectionDB.ExcuteQueryUpdate(SQLxoa);
         }
         public static ResultSet CauTruyvanNhanVien(){

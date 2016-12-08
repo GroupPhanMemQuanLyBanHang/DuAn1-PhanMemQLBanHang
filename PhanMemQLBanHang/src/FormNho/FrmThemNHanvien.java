@@ -8,6 +8,7 @@ package FormNho;
 import BLL.NhanVienBLL;
 import DTO.NhanVienDTO;
 import Presentation.FrmChinh;
+import Presentation.FrmNhanVien;
 
 /**
  *
@@ -185,7 +186,7 @@ public class FrmThemNHanvien extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnluu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addComponent(btnthoat)
                 .addGap(51, 51, 51))
         );
@@ -275,8 +276,10 @@ public class FrmThemNHanvien extends javax.swing.JFrame {
 
     private void btnthoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthoatActionPerformed
         // TODO add your handling code here:
-        FrmChinh  frm  =new FrmChinh();
-        frm.show();
+        
+        FrmChinh.frmnv.show();
+        this.dispose();
+        
     }//GEN-LAST:event_btnthoatActionPerformed
 
     /**

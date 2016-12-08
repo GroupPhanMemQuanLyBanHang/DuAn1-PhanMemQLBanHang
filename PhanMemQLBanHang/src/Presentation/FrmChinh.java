@@ -255,11 +255,11 @@ public class FrmChinh extends javax.swing.JFrame {
         FrmBanHang frm = new FrmBanHang();
         frm.show();
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    public static FrmNhanVien frmnv = new FrmNhanVien();
     private void btnNhanVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNhanVienActionPerformed
         // TODO add your handling code here:
-        FrmNhanVien frm = new FrmNhanVien();
-        frm.show();
+        
+        frmnv.show();
     }//GEN-LAST:event_btnNhanVienActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

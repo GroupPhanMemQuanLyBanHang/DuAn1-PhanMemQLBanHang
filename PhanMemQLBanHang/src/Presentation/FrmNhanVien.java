@@ -32,9 +32,6 @@ public class FrmNhanVien extends javax.swing.JFrame {
 
         NhanVien = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        btnthemquyen = new javax.swing.JButton();
-        btnxoaquyen = new javax.swing.JButton();
-        btnsuaquyen = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblquyen = new javax.swing.JTable();
         btnthemnhanvien = new javax.swing.JButton();
@@ -43,9 +40,8 @@ public class FrmNhanVien extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblnhanvien = new javax.swing.JTable();
         txttimkiem = new javax.swing.JTextField();
-        btnphanquyen = new javax.swing.JButton();
         lbltimkiem = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -54,29 +50,7 @@ public class FrmNhanVien extends javax.swing.JFrame {
             }
         });
 
-        btnthemquyen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Them.png"))); // NOI18N
-        btnthemquyen.setText("Thêm");
-        btnthemquyen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnthemquyenActionPerformed(evt);
-            }
-        });
-
-        btnxoaquyen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/xoa.png"))); // NOI18N
-        btnxoaquyen.setText("Xóa");
-        btnxoaquyen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnxoaquyenActionPerformed(evt);
-            }
-        });
-
-        btnsuaquyen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Sua.png"))); // NOI18N
-        btnsuaquyen.setText("Sửa");
-        btnsuaquyen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnsuaquyenActionPerformed(evt);
-            }
-        });
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         tblquyen.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -128,14 +102,19 @@ public class FrmNhanVien extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblnhanvien);
 
-        btnphanquyen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/phan quyen.png"))); // NOI18N
-        btnphanquyen.setText("Phân quyền");
-
         lbltimkiem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
         lbltimkiem.setText("Tìm kiếm :");
         lbltimkiem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbltimkiemMouseClicked(evt);
+            }
+        });
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -145,15 +124,7 @@ public class FrmNhanVien extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnphanquyen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnthemquyen, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnsuaquyen, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnxoaquyen, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -166,45 +137,32 @@ public class FrmNhanVien extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbltimkiem)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txttimkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txttimkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12))
                     .addComponent(jScrollPane2))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnthemquyen)
-                    .addComponent(btnxoaquyen)
-                    .addComponent(btnsuaquyen)
-                    .addComponent(btnthemnhanvien)
-                    .addComponent(btnsuanhanvien)
-                    .addComponent(btnxoanhanvien)
-                    .addComponent(txttimkiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbltimkiem))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnphanquyen)
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnthemnhanvien)
+                            .addComponent(btnsuanhanvien)
+                            .addComponent(btnxoanhanvien)
+                            .addComponent(txttimkiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbltimkiem)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         NhanVien.addTab("Nhân viên", jPanel1);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 953, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
-        );
-
-        NhanVien.addTab("Nhật ký", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -223,32 +181,45 @@ public class FrmNhanVien extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnthemnhanvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthemnhanvienActionPerformed
-        // TODO add your handling code here:
-         FrmThemNHanvien frm = new FrmThemNHanvien();
-         frm.show();
-    }//GEN-LAST:event_btnthemnhanvienActionPerformed
-
-    private void btnthemquyenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthemquyenActionPerformed
-        // TODO add your handling code here:
-     FrmThemQuyen frm = new FrmThemQuyen();
-     frm.show();
-    }//GEN-LAST:event_btnthemquyenActionPerformed
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         ResultSet rs = QuyenBLL.LayTatCaQuyen();
          QuyenBLL.DoDuLieuVaoJTableQuyentrongBangNhanvien(rs,tblquyen);
          
-         ResultSet rs1 = NhanVienBLL.LayTatCaNhanVienVaSanPham();
-         NhanVienBLL.DoDuLieuVaoJTableQuyentrongBangNhanvien(rs1,tblnhanvien);
+         ResultSet rs1 = NhanVienBLL.LayTatCaNhanVien();
+        NhanVienBLL.DoDuLieuVaoJTableQuyentrongBangNhanvien(rs1, tblnhanvien);
     }//GEN-LAST:event_formWindowOpened
 
-    private void btnsuaquyenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsuaquyenActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ResultSet rs = NhanVienBLL.LayTatCaNhanVien();
+        NhanVienBLL.DoDuLieuVaoJTableQuyentrongBangNhanvien(rs, tblnhanvien);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void lbltimkiemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbltimkiemMouseClicked
         // TODO add your handling code here:
-        FrmSuaQuyen frm = new FrmSuaQuyen();
-        frm.show();
-    }//GEN-LAST:event_btnsuaquyenActionPerformed
+        String tuKhoa = txttimkiem.getText();
+        //Kết quả của tìm theo từ khóa ResultSet
+        ResultSet rs = NhanVienBLL.LayNVTheoTuKhoa(tuKhoa);
+        //gọi hàm đổ dữ liệu sau khi tìm kiếm vào Table
+        NhanVienBLL.DoDuLieuVaoJTableNhanVienDayDu(rs, tblnhanvien);
+    }//GEN-LAST:event_lbltimkiemMouseClicked
+
+    private void btnxoanhanvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnxoanhanvienActionPerformed
+        // TODO add your handling code here:
+        int cacViTriDuocChon = tblnhanvien.getSelectedRow();
+        //Dùng vòng lặp để duyệt tất cả các phần tử trong mảng,
+        //phần tử ở vị trí thứ i là cacViTriDuocChon[i]. Đây chính là vị trí dòng được chọn
+
+        //Lấy mã loại trong Table LoaiSanPham
+        //Hàm getValueAt(row, column): lấy giá trị tại dòng nào và cột nào
+        int MaLoaiCanXoa = Integer.parseInt(tblnhanvien.getValueAt(cacViTriDuocChon, 1).toString());
+        //Gọi hàm xóa ở tầng xử lý
+        NhanVienBLL.XoaNhanVien(MaLoaiCanXoa);
+
+        ResultSet rs = NhanVienBLL.LayTatCaNhanVien();
+        //Đọc lại dữ liệu và đổ lại dữ liệu
+        NhanVienBLL.DoDuLieuVaoJTableQuyentrongBangNhanvien(rs, tblnhanvien);
+    }//GEN-LAST:event_btnxoanhanvienActionPerformed
 
     private void btnsuanhanvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsuanhanvienActionPerformed
         // TODO add your handling code here:
@@ -256,48 +227,13 @@ public class FrmNhanVien extends javax.swing.JFrame {
         frm.show();
     }//GEN-LAST:event_btnsuanhanvienActionPerformed
 
-    private void lbltimkiemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbltimkiemMouseClicked
+    private void btnthemnhanvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthemnhanvienActionPerformed
         // TODO add your handling code here:
-           String tuKhoa = txttimkiem.getText();
-       //Kết quả của tìm theo từ khóa ResultSet
-        ResultSet rs = NhanVienBLL.LayNVTheoTuKhoa(tuKhoa);
-       //gọi hàm đổ dữ liệu sau khi tìm kiếm vào Table
-      NhanVienBLL.DoDuLieuVaoJTableNhanVienDayDu(rs, tblnhanvien);
-    }//GEN-LAST:event_lbltimkiemMouseClicked
-
-    private void btnxoaquyenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnxoaquyenActionPerformed
-        // TODO add your handling code here:
-           int[] cacViTriDuocChon = tblquyen.getSelectedRows();
-        //Dùng vòng lặp để duyệt tất cả các phần tử trong mảng, 
-        //phần tử ở vị trí thứ i là cacViTriDuocChon[i]. Đây chính là vị trí dòng được chọn
-        for(int i = 0; i < cacViTriDuocChon.length; i++){
-            //Lấy mã loại trong Table LoaiSanPham
-            //Hàm getValueAt(row, column): lấy giá trị tại dòng nào và cột nào
-            String MaLoaiCanXoa = tblquyen.getValueAt(cacViTriDuocChon[i], 0).toString();
-            //Gọi hàm xóa ở tầng xử lý
-            QuyenBLL.XoaQuyen(MaLoaiCanXoa);
-        }
-        ResultSet rs = QuyenBLL.LayTatCaQuyen();
-        //Đọc lại dữ liệu và đổ lại dữ liệu
-        QuyenBLL.DoDuLieuVaoJTableQuyentrongBangNhanvien(rs, tblquyen);
-    }//GEN-LAST:event_btnxoaquyenActionPerformed
-
-    private void btnxoanhanvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnxoanhanvienActionPerformed
-        // TODO add your handling code here:
-           int[] cacViTriDuocChon = tblnhanvien.getSelectedRows();
-        //Dùng vòng lặp để duyệt tất cả các phần tử trong mảng, 
-        //phần tử ở vị trí thứ i là cacViTriDuocChon[i]. Đây chính là vị trí dòng được chọn
-        for(int i = 0; i < cacViTriDuocChon.length; i++){
-            //Lấy mã loại trong Table LoaiSanPham
-            //Hàm getValueAt(row, column): lấy giá trị tại dòng nào và cột nào
-            String MaLoaiCanXoa = tblnhanvien.getValueAt(cacViTriDuocChon[i], 0).toString();
-            //Gọi hàm xóa ở tầng xử lý
-            NhanVienBLL.XoaNhanVien(MaLoaiCanXoa);
-        }
+        FrmThemNHanvien frm = new FrmThemNHanvien();
+        frm.show();
         ResultSet rs = NhanVienBLL.LayTatCaNhanVien();
-        //Đọc lại dữ liệu và đổ lại dữ liệu
         NhanVienBLL.DoDuLieuVaoJTableQuyentrongBangNhanvien(rs, tblnhanvien);
-    }//GEN-LAST:event_btnxoanhanvienActionPerformed
+    }//GEN-LAST:event_btnthemnhanvienActionPerformed
 
     /**
      * @param args the command line arguments
@@ -336,15 +272,11 @@ public class FrmNhanVien extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane NhanVien;
-    private javax.swing.JButton btnphanquyen;
     private javax.swing.JButton btnsuanhanvien;
-    private javax.swing.JButton btnsuaquyen;
     private javax.swing.JButton btnthemnhanvien;
-    private javax.swing.JButton btnthemquyen;
     private javax.swing.JButton btnxoanhanvien;
-    private javax.swing.JButton btnxoaquyen;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbltimkiem;

@@ -301,8 +301,8 @@ public class FrmSuaNhanvien extends javax.swing.JFrame {
 
     private void btnthoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthoatActionPerformed
         // TODO add your handling code here:
-        FrmChinh  frm  =new FrmChinh();
-        frm.show();
+        FrmChinh.frmnv.show();
+        this.dispose();
     }//GEN-LAST:event_btnthoatActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

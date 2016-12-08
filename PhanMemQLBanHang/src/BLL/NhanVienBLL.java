@@ -90,12 +90,10 @@ public class NhanVienBLL {
             NhanVienDAL.CauTruyVanSuaNhanVien(NV);
         }
     }
-    public static void XoaNhanVien(String maCanXoa){
-        if(maCanXoa.equals("")){
-         
-        }else{
+    public static void XoaNhanVien(int maCanXoa){
+        
              NhanVienDAL.CauTruyVanXoaNhanVien(maCanXoa);
-        }
+        
     }
      public static ResultSet LayTatCaNhanVien(){
         ResultSet rs;
