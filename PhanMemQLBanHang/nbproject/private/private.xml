@@ -5,6 +5,8 @@
         <group>
             <file>file:/D:/GitHub/PhanMemQuanLyBanHang/DuAn1-PhanMemQLBanHang/PhanMemQLBanHang/src/DAL/SanPhamDAL.java</file>
             <file>file:/D:/GitHub/PhanMemQuanLyBanHang/DuAn1-PhanMemQLBanHang/PhanMemQLBanHang/src/BLL/SanPhamBLL.java</file>
+            <file>file:/D:/GitHub/PhanMemQuanLyBanHang/DuAn1-PhanMemQLBanHang/PhanMemQLBanHang/src/BLL/KhachHangBLL.java</file>
+            <file>file:/D:/GitHub/PhanMemQuanLyBanHang/DuAn1-PhanMemQLBanHang/PhanMemQLBanHang/src/DAL/KhachHangDAL.java</file>
             <file>file:/D:/GitHub/PhanMemQuanLyBanHang/DuAn1-PhanMemQLBanHang/PhanMemQLBanHang/src/Presentation/FrmBanHang.java</file>
         </group>
     </open-files>
