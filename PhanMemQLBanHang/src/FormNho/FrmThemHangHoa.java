@@ -88,7 +88,7 @@ public class FrmThemHangHoa extends javax.swing.JFrame {
 
         jLabel3.setText("Tên SP:");
 
-        jLabel4.setText("Email:");
+        jLabel4.setText("Số Seri:");
 
         jLabel5.setText("Ngày Nhập:");
 

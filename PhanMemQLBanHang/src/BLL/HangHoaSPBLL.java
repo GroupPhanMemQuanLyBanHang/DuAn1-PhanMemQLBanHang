@@ -61,6 +61,12 @@ public class HangHoaSPBLL {
         
         return rs;
     }
+       public static ResultSet LaySanPhamTheoTenSanPham(String TenSP,String ID){
+        ResultSet rs;
+        rs = HangHoaSPDAL.LayThongTinSPDuaVaoTenSanPham(TenSP,ID);
+        
+        return rs;
+    }
     // Hàm tính số tiền cần add 
     public static double TinhTien(JTable tblCTHD, int chiSoCotThanhTien){
         double tongTien = 0;
@@ -152,11 +158,11 @@ public class HangHoaSPBLL {
     }
     public static void XoaDonHang(String maCanXoa){
         if(maCanXoa.equals("")){
-         
         }else{
              HangHoaSPDAL.CauTruyVanXoaHoaDon(maCanXoa);
         }
     }
+     
     public  static  void ThemLoaiSanPhamVaoCBB(String MaLoai){
         HangHoaSPDAL.CauTruyVanLayThongTinTenLoaiLSP(MaLoai);
     }
@@ -181,6 +187,11 @@ public class HangHoaSPBLL {
     public static ResultSet LayTatCaDonhang(){
         ResultSet rs;
         rs = HangHoaSPDAL.CauTruyVanLayThongTinHangHoa();
+        return rs;
+    }
+    public static ResultSet Laybangtonkho(){
+        ResultSet rs;
+        rs = HangHoaSPDAL.CauTruyVanLayThongTinbangtonkho();
         return rs;
     }
     public static ResultSet LayTatCaLSP(){

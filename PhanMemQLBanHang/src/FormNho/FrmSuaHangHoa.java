@@ -94,7 +94,7 @@ public class FrmSuaHangHoa extends javax.swing.JFrame {
 
         jLabel3.setText("Tên SP:");
 
-        jLabel4.setText("Email:");
+        jLabel4.setText("Số Seri:");
 
         jLabel5.setText("Ngày Nhập:");
 
@@ -158,16 +158,15 @@ public class FrmSuaHangHoa extends javax.swing.JFrame {
                             .addComponent(txtgianhap, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtemail, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtHanBaohanh))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel10)
                                     .addComponent(jLabel12)
-                                    .addComponent(jLabel8))
-                                .addGap(0, 0, 0))
+                                    .addComponent(jLabel8)))
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)

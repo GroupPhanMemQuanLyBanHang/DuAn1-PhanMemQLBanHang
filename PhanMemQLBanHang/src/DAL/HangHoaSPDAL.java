@@ -28,13 +28,18 @@ public class HangHoaSPDAL {
     }
 
     public static void CauTruyVanXoaHoaDon(String TenSanPham) {
-        String SQlXoa = "delete from SanPham where IDSanPham = "+TenSanPham+" " ;
+        String SQlXoa = "delete a  from SanPham a INNER JOIN LoaiSanPham b on a.MaLoaiSanPham = b.MaLoaiSanPham where a.IDSanPham = "+TenSanPham+"  " ;
         ConnectionDB.ExcuteQueryUpdate(SQlXoa);
     }
-    
     public static ResultSet CauTruyVanLayThongTinHangHoa() {
         ResultSet rs;
-        String SQLSelect = "select * from SanPham";
+        String SQLSelect = "select * from SanPham ";
+        rs = ConnectionDB.ExcuteQueryGetTable(SQLSelect);
+        return rs;
+    }
+     public static ResultSet CauTruyVanLayThongTinbangtonkho( ) {
+        ResultSet rs;
+        String SQLSelect = "select TenSanPham,DonViTinh,SoLuong,GiaBan,GiaNhap,HanBaoHanh from SanPham ";
         rs = ConnectionDB.ExcuteQueryGetTable(SQLSelect);
         return rs;
     }
@@ -85,5 +90,11 @@ public class HangHoaSPDAL {
         String SQLSelect = "select * from SanPham where MaLoaiSanPham  = "+MaLoaiSP+" ";
         rs = ConnectionDB.ExcuteQueryGetTable(SQLSelect);
         return rs;
-    }  
+    } 
+         public static ResultSet LayThongTinSPDuaVaoTenSanPham(String TenSanPham,String ID) {
+        ResultSet rs;
+        String SQLSelect = "select * from SanPham inner join LoaiSanPham on SanPham.MaLoaiSanPham = LoaiSanPham.MaLoaiSanPham  where   SanPham.MaLoaiSanPham = "+ID+"";
+rs = ConnectionDB.ExcuteQueryGetTable(SQLSelect);
+        return rs;
+    }
 }
