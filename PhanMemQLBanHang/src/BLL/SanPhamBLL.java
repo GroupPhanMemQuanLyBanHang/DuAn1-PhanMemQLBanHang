@@ -226,4 +226,11 @@ public class SanPhamBLL {
         rs = SanPhamDAL.LayThongTinSP(maSP);   
         return rs;
     }
+        public static ResultSet LayTenSP(String tuKhoa){
+        ResultSet rs;
+        rs = SanPhamDAL.Timsp(tuKhoa);
+        
+        return rs;
+    }
+        
 }

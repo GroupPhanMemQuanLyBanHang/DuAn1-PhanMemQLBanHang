@@ -66,7 +66,7 @@ public class FrmBanHang extends javax.swing.JFrame {
         tblDanhSachSP = new javax.swing.JTable();
         jSpinner1 = new javax.swing.JSpinner();
         jLabel25 = new javax.swing.JLabel();
-        jTextField20 = new javax.swing.JTextField();
+        txtTimkiem2 = new javax.swing.JTextField();
         jScrollPane6 = new javax.swing.JScrollPane();
         tblTenSanPham = new javax.swing.JTable();
         bntXuatSP = new javax.swing.JButton();
@@ -219,6 +219,12 @@ public class FrmBanHang extends javax.swing.JFrame {
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
 
+        txtTimkiem2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTimkiem2KeyReleased(evt);
+            }
+        });
+
         tblTenSanPham.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -276,7 +282,7 @@ public class FrmBanHang extends javax.swing.JFrame {
                     .addGroup(jpnBanHangLayout.createSequentialGroup()
                         .addComponent(jLabel25)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField20))
+                        .addComponent(txtTimkiem2))
                     .addGroup(jpnBanHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jpnBanHangLayout.createSequentialGroup()
                             .addGap(9, 9, 9)
@@ -355,7 +361,7 @@ public class FrmBanHang extends javax.swing.JFrame {
                             .addGroup(jpnBanHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(txtTimkiem1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel25)
-                                .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtTimkiem2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jpnBanHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1122,6 +1128,17 @@ public class FrmBanHang extends javax.swing.JFrame {
       KhachHangBLL.DanhSachTenKhachHang(rs, tblDanhSach);
     }//GEN-LAST:event_txtTimkiem1KeyReleased
 
+    private void txtTimkiem2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimkiem2KeyReleased
+        // TODO add your handling code here:
+        String tuKhoa = txtTimkiem2.getText();
+        
+        //Kết quả của tìm theo từ khóa ResultSet
+        ResultSet rs = SanPhamBLL.LayTenSP(tuKhoa);
+        
+        //gọi hàm đổ dữ liệu sau khi tìm kiếm vào Table
+      SanPhamBLL.DanhSachBanHang(rs, tblTenSanPham);
+    }//GEN-LAST:event_txtTimkiem2KeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -1227,7 +1244,6 @@ public class FrmBanHang extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
@@ -1254,6 +1270,7 @@ public class FrmBanHang extends javax.swing.JFrame {
     private javax.swing.JTextField txtTenKH;
     private javax.swing.JTextField txtTenKhachHang;
     private javax.swing.JTextField txtTimkiem1;
+    private javax.swing.JTextField txtTimkiem2;
     private javax.swing.JTextField txtmota;
     // End of variables declaration//GEN-END:variables
 }

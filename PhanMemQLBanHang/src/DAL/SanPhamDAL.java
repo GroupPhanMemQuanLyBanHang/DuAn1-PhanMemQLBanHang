@@ -83,4 +83,13 @@ public class SanPhamDAL {
         rs = ConnectionDB.ExcuteQueryGetTable(SQLSelect);
         return rs;
     }
+    public static ResultSet Timsp(String tuKhoa ){
+        ResultSet rs;        
+        String cauTruyVanSQL = "Select * from SanPham "
+                + "where TenSanPham like N'%" + tuKhoa + "%' "
+                + "or Imei like N'%" + tuKhoa + "%'"
+                +"or MaLoaiSanPham like N'%"+tuKhoa+"%'";
+        rs = ConnectionDB.ExcuteQueryGetTable(cauTruyVanSQL);
+         return rs;        
+    } 
 }
