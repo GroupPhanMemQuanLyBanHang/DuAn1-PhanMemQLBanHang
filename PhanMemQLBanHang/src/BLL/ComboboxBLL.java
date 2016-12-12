@@ -28,7 +28,7 @@ public class ComboboxBLL {
             System.out.println(ex.toString());
         }
     }
-
+   
     public static void setSelectedCombobox(JComboBox cbb, String cbbValue) {
         //Vòng lặp lấy tất cả item trong combobox
         for (int i = 0; i < cbb.getItemCount(); i++) {

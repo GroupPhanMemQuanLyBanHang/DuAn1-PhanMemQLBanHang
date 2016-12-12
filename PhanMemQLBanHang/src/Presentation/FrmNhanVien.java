@@ -41,7 +41,7 @@ public class FrmNhanVien extends javax.swing.JFrame {
         tblnhanvien = new javax.swing.JTable();
         txttimkiem = new javax.swing.JTextField();
         lbltimkiem = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnhienhethong = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -110,11 +110,11 @@ public class FrmNhanVien extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnhienhethong.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
+        btnhienhethong.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnhienhethong.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnhienhethongActionPerformed(evt);
             }
         });
 
@@ -139,7 +139,7 @@ public class FrmNhanVien extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txttimkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnhienhethong, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12))
                     .addComponent(jScrollPane2))
                 .addContainerGap())
@@ -155,7 +155,7 @@ public class FrmNhanVien extends javax.swing.JFrame {
                             .addComponent(btnxoanhanvien)
                             .addComponent(txttimkiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbltimkiem)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnhienhethong, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -190,10 +190,10 @@ public class FrmNhanVien extends javax.swing.JFrame {
         NhanVienBLL.DoDuLieuVaoJTableQuyentrongBangNhanvien(rs1, tblnhanvien);
     }//GEN-LAST:event_formWindowOpened
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnhienhethongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhienhethongActionPerformed
         ResultSet rs = NhanVienBLL.LayTatCaNhanVien();
         NhanVienBLL.DoDuLieuVaoJTableQuyentrongBangNhanvien(rs, tblnhanvien);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnhienhethongActionPerformed
 
     private void lbltimkiemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbltimkiemMouseClicked
         // TODO add your handling code here:
@@ -272,10 +272,10 @@ public class FrmNhanVien extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane NhanVien;
+    private javax.swing.JButton btnhienhethong;
     private javax.swing.JButton btnsuanhanvien;
     private javax.swing.JButton btnthemnhanvien;
     private javax.swing.JButton btnxoanhanvien;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

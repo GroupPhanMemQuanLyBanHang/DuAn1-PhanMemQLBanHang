@@ -96,8 +96,18 @@ public class FrmHangHoa extends javax.swing.JFrame {
                 btnxoadonhangMouseClicked(evt);
             }
         });
+        btnxoadonhang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnxoadonhangActionPerformed(evt);
+            }
+        });
 
         txttimkiem.setToolTipText("");
+        txttimkiem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txttimkiemKeyReleased(evt);
+            }
+        });
 
         tbldonhang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -289,29 +299,25 @@ public class FrmHangHoa extends javax.swing.JFrame {
         // TODO add your handling code here:
            FrmThemHangHoa frm = new FrmThemHangHoa();
            frm.show();
+       ResultSet rs = HangHoaSPBLL.LayTatCaDonhang();
+        HangHoaSPBLL.DoDuLieuVaoJTableDonHang(rs, tbldonhang);
     }//GEN-LAST:event_btnthemdonhangMouseClicked
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void btnsuadonhangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsuadonhangMouseClicked
         // TODO add your handling code here:
           FrmSuaHangHoa frm = new FrmSuaHangHoa();
                     frm.show();
+         ResultSet rs = HangHoaSPBLL.LayTatCaDonhang();
+        HangHoaSPBLL.DoDuLieuVaoJTableDonHang(rs, tbldonhang);
     }//GEN-LAST:event_btnsuadonhangMouseClicked
 
     private void btnxoadonhangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnxoadonhangMouseClicked
         // TODO add your handling code here:
-          int[] cacViTriDuocChon = tbldonhang.getSelectedRows();
-     for(int i = 0; i < cacViTriDuocChon.length; i++){
-            String MaLoaiCanXoa = tbldonhang.getValueAt(cacViTriDuocChon[i], 0).toString();
-            //Gọi hàm xóa ở tầng xử lý
-         HangHoaSPBLL.XoaDonHang(MaLoaiCanXoa);
-        }
-        ResultSet rs = HangHoaSPBLL.LayTatCaDonhang();
-        //Đọc lại dữ liệu và đổ lại dữ liệu
-       HangHoaSPBLL.DoDuLieuVaoJTableDonHang(rs, tbldonhang);
+  
     }//GEN-LAST:event_btnxoadonhangMouseClicked
 
     private void lbltimkiemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbltimkiemMouseClicked
@@ -328,15 +334,15 @@ public class FrmHangHoa extends javax.swing.JFrame {
           ResultSet rs = HangHoaSPBLL.LayTatCaDonhang();
          HangHoaSPBLL.DoDuLieuVaoJTableDonHang(rs,tbldonhang);
          
-           ResultSet rs3 = HangHoaSPBLL.LayTatCaDonhang();
-         HangHoaSPBLL.DoDuLieuVaoJTableBangtonkho(rs3,tbltonkhoHangHoa);
-         
-         ResultSet rs1 = HangHoaSPBLL.LayTatCaLSP();
-        ComboboxBLL.LoadDuLieuCombobox(rs1, cbbNhomHang, "TenLoaiSanPham", "MaLoaiSanPham");
+        ResultSet rs1 = HangHoaSPBLL.LayTatCaLSP();
+       ComboboxBLL.LoadDuLieuCombobox(rs1, cbbNhomHang, "TenLoaiSanPham", "MaLoaiSanPham");
         
-        ResultSet rs2 = HangHoaSPBLL.LayTatCaLSP();
+       ResultSet rs2 = HangHoaSPBLL.LayTatCaLSP();
         ComboboxBLL.LoadDuLieuCombobox(rs2, cbbLoaiHanghoa, "TenLoaiSanPham", "MaLoaiSanPham");
-     
+         
+          ResultSet rs3 = HangHoaSPBLL.Laybangtonkho();
+        HangHoaSPBLL.DoDuLieuVaoJTableBangtonkho(rs3,tbltonkhoHangHoa);
+       
     }//GEN-LAST:event_formWindowOpened
 
     private void cbbNhomHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbbNhomHangMouseClicked
@@ -346,7 +352,7 @@ public class FrmHangHoa extends javax.swing.JFrame {
     private void cbbNhomHangItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbNhomHangItemStateChanged
     if(evt.getStateChange() == 1){
             String maLoaiSPDuocChon = ComboboxBLL.getSelectedItemID(cbbNhomHang);
-            ResultSet rs = HangHoaSPBLL.LaySanPhamTheoMaLoaiSP(maLoaiSPDuocChon);
+        ResultSet rs = HangHoaSPBLL.LaySanPhamTheoTenSanPham(maLoaiSPDuocChon,maLoaiSPDuocChon);
             HangHoaSPBLL.DoDuLieuVaoJTableDonHang(rs, tbltonkhoHangHoa);
         }
     }//GEN-LAST:event_cbbNhomHangItemStateChanged
@@ -358,17 +364,11 @@ public class FrmHangHoa extends javax.swing.JFrame {
     private void cbbLoaiHanghoaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbbLoaiHanghoaMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_cbbLoaiHanghoaMouseClicked
-
-    
+ 
     private void btnxuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnxuatActionPerformed
         // TODO add your handling code here:
-          MessageFormat Header = new MessageFormat("Report Print");
-          MessageFormat Header1 = new MessageFormat("Report Print 111");
-        try {
-            tbldonhang.print(JTable.PrintMode.NORMAL, Header, Header1);
-        } catch (java.awt.print.PrinterException e) {
-            System.err.format("Cannot Print", e.getMessage());
-        }
+        ResultSet rs = HangHoaSPBLL.LayTatCaDonhang();
+        HangHoaSPBLL.DoDuLieuVaoJTableDonHang(rs, tbldonhang);
     }//GEN-LAST:event_btnxuatActionPerformed
 
     private void cbbLoaiHanghoaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbLoaiHanghoaItemStateChanged
@@ -378,6 +378,28 @@ public class FrmHangHoa extends javax.swing.JFrame {
             HangHoaSPBLL.DoDuLieuVaoJTableDonHang(rs, tbldonhang);
         }
     }//GEN-LAST:event_cbbLoaiHanghoaItemStateChanged
+
+    private void btnxoadonhangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnxoadonhangActionPerformed
+        // TODO add your handling code here:
+                int[] cacViTriDuocChon = tbldonhang.getSelectedRows();
+           for(int i = 0; i < cacViTriDuocChon.length; i++){
+    String MaLoaiCanXoa = tbldonhang.getValueAt(cacViTriDuocChon[i], 0).toString() ;
+     //Gọi hàm xóa ở tầng xử lý
+            HangHoaSPBLL.XoaDonHang(MaLoaiCanXoa);
+         }
+           ResultSet rs = HangHoaSPBLL.LayTatCaDonhang();
+        //Đọc lại dữ liệu và đổ lại dữ liệu
+       HangHoaSPBLL.DoDuLieuVaoJTableDonHang(rs, tbldonhang);  
+    }//GEN-LAST:event_btnxoadonhangActionPerformed
+
+    private void txttimkiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttimkiemKeyReleased
+        // TODO add your handling code here:
+             String tuKhoa = txttimkiem.getText();
+       //Kết quả của tìm theo từ khóa ResultSet
+        ResultSet rs = HangHoaSPBLL.LaySanPhamTheoTuKhoa(tuKhoa);
+       //gọi hàm đổ dữ liệu sau khi tìm kiếm vào Table
+      HangHoaSPBLL.DoDuLieuVaoJTableDonHang(rs, tbldonhang);
+    }//GEN-LAST:event_txttimkiemKeyReleased
       
     /**
      * @param args the command line arguments
