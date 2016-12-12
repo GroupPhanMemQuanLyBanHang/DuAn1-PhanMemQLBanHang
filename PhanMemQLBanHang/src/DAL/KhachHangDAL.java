@@ -81,4 +81,14 @@ public class KhachHangDAL {
         rs = ConnectionDB.ExcuteQueryGetTable(cauTruyVanSQL);
          return rs;        
     }  
+         public static ResultSet TimKH2(String tuKhoa ){
+        ResultSet rs;        
+        String cauTruyVanSQL = "Select * from KhachHang "
+                + "where TenKH like N'%" + tuKhoa + "%' "
+                + "or SoDienThoai like N'%" + tuKhoa + "%'"
+                + "or MaLoaiKH like N'%" + tuKhoa + "%'"
+                +"or DiaChi like N'%"+tuKhoa+"%'";
+        rs = ConnectionDB.ExcuteQueryGetTable(cauTruyVanSQL);
+         return rs;        
+    } 
 }

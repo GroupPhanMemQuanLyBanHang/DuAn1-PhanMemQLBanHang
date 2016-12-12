@@ -129,4 +129,10 @@ public class KhachHangBLL {
         
         return rs;
     }
+    public static ResultSet LayTenKhachHang2(String tuKhoa){
+        ResultSet rs;
+        rs = KhachHangDAL.TimKH2(tuKhoa);
+        
+        return rs;
+    }
 }

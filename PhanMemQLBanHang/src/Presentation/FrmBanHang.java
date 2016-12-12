@@ -79,7 +79,7 @@ public class FrmBanHang extends javax.swing.JFrame {
         bntThem = new javax.swing.JButton();
         bntSua = new javax.swing.JButton();
         bntXoa = new javax.swing.JButton();
-        jTextField8 = new javax.swing.JTextField();
+        txtTimkiem3 = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
@@ -438,9 +438,14 @@ public class FrmBanHang extends javax.swing.JFrame {
             }
         });
 
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        txtTimkiem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                txtTimkiem3ActionPerformed(evt);
+            }
+        });
+        txtTimkiem3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTimkiem3KeyReleased(evt);
             }
         });
 
@@ -600,8 +605,8 @@ public class FrmBanHang extends javax.swing.JFrame {
                         .addComponent(bntXoa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel23)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtTimkiem3, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpnKhachHangLayout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
@@ -619,7 +624,7 @@ public class FrmBanHang extends javax.swing.JFrame {
                     .addComponent(bntThem)
                     .addComponent(bntSua)
                     .addComponent(bntXoa)
-                    .addComponent(jTextField8)
+                    .addComponent(txtTimkiem3)
                     .addComponent(jLabel23))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jpnKhachHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -937,9 +942,9 @@ public class FrmBanHang extends javax.swing.JFrame {
 
     }//GEN-LAST:event_bntThemActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void txtTimkiem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimkiem3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_txtTimkiem3ActionPerformed
 
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
         // TODO add your handling code here:
@@ -1011,15 +1016,15 @@ public class FrmBanHang extends javax.swing.JFrame {
 
         ResultSet r1 = KhachHangDAL.LayDanhSachKhachHang();
         KhachHangBLL.LayKHTheoMaKH(r1, tblBanHangKhach);
-        
+
         ResultSet rs3 = SanPhamDAL.CauTruyvantatca();
         SanPhamBLL.DanhSachBanHang(rs3, tblTenSanPham);
-        
-        ResultSet rs4= LoaiKhachHangBLL.LayTatCaLKH();
+
+        ResultSet rs4 = LoaiKhachHangBLL.LayTatCaLKH();
         ComboboxBLL.LoadDuLieuCombobox(rs4, cbbKieuKH, "TenLoaiKH", "MaLoaiKH");
-       String maKH = ComboboxBLL.getSelectedItemID(cbbKieuKH);
+        String maKH = ComboboxBLL.getSelectedItemID(cbbKieuKH);
         KhachHangDTO KH = KhachHangBLL.LayDonHangtheoMaDH(maKH);
-    txtTenKhachHang.setText(KH.getTenKhachHang());
+        txtTenKhachHang.setText(KH.getTenKhachHang());
     }//GEN-LAST:event_formWindowOpened
 
     private void tblBanHangKhachMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBanHangKhachMouseClicked
@@ -1030,10 +1035,9 @@ public class FrmBanHang extends javax.swing.JFrame {
         txtMLKH.setText(tblBanHangKhach.getValueAt(viTriDongVuaBam, 1).toString());
         txtTenKhachHang.setText(tblBanHangKhach.getValueAt(viTriDongVuaBam, 2).toString());
         txtDiachi.setText(tblBanHangKhach.getValueAt(viTriDongVuaBam, 3).toString());
-        if(tblBanHangKhach.getValueAt(viTriDongVuaBam, 4).equals("Nam")){
+        if (tblBanHangKhach.getValueAt(viTriDongVuaBam, 4).equals("Nam")) {
             rbtnNam.setSelected(true);
-        }
-        else{
+        } else {
             rbtnNu.setSelected(true);
         }
         txtSODienThoai.setText(tblBanHangKhach.getValueAt(viTriDongVuaBam, 5).toString());
@@ -1054,7 +1058,7 @@ public class FrmBanHang extends javax.swing.JFrame {
         }
         ResultSet r1 = KhachHangDAL.LayDanhSachKhachHang();
         KhachHangBLL.LayKHTheoMaKH(r1, tblBanHangKhach);
-        
+
     }//GEN-LAST:event_bntXoaActionPerformed
 
     private void rbtnNamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnNamActionPerformed
@@ -1071,7 +1075,7 @@ public class FrmBanHang extends javax.swing.JFrame {
 
             //Tạo biến mảng info kiểu string độ dài là 3
             String[] info = new String[3];
-            
+
         }
     }//GEN-LAST:event_tblTenSanPhamMousePressed
 
@@ -1084,15 +1088,15 @@ public class FrmBanHang extends javax.swing.JFrame {
     private void bntXuatSPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntXuatSPActionPerformed
         // TODO add your handling code here:
         int vitrichon = tblTenSanPham.getSelectedRow();
-            int maKH = Integer.parseInt(tblTenSanPham.getValueAt(vitrichon, 0).toString());
-            
-            String tensp = tblTenSanPham.getValueAt(vitrichon, 0).toString();
-            String idSanPham = tblTenSanPham.getValueAt(vitrichon, 1).toString();
-            
-            ResultSet  rs = SanPhamDAL.LaySPTheoIDSanPham(tensp);
-            int soluong = Integer.parseInt(jSpinner1.getValue().toString());
-            ChiTietHoaDon cthd = SanPhamBLL.TaoChiTietHoaDon(rs, soluong);
-            SanPhamBLL.DoDuLieuVaoJTableCTHD(cthd, tblDanhSachSP);
+        int maKH = Integer.parseInt(tblTenSanPham.getValueAt(vitrichon, 0).toString());
+
+        String tensp = tblTenSanPham.getValueAt(vitrichon, 0).toString();
+        String idSanPham = tblTenSanPham.getValueAt(vitrichon, 1).toString();
+
+        ResultSet rs = SanPhamDAL.LaySPTheoIDSanPham(tensp);
+        int soluong = Integer.parseInt(jSpinner1.getValue().toString());
+        ChiTietHoaDon cthd = SanPhamBLL.TaoChiTietHoaDon(rs, soluong);
+        SanPhamBLL.DoDuLieuVaoJTableCTHD(cthd, tblDanhSachSP);
     }//GEN-LAST:event_bntXuatSPActionPerformed
 
     private void bntXoaneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntXoaneActionPerformed
@@ -1108,36 +1112,50 @@ public class FrmBanHang extends javax.swing.JFrame {
 
     private void cbbKieuKHItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbKieuKHItemStateChanged
         // TODO add your handling code here:
-       if(evt.getStateChange() == 1){
+        if (evt.getStateChange() == 1) {
             String maLoaiSPDuocChon = ComboboxBLL.getSelectedItemID(cbbKieuKH);
             KhachHangDTO SP = KhachHangBLL.LayDonHangtheoMaDH(maLoaiSPDuocChon);
-            
-           txtTenKhachHang.setText(SP.getTenKhachHang());txtDiachi.setText(SP.getTenKhachHang());
-            txtSODienThoai.setText(SP.getSDT());txtLoaiKhachHang.setText(SP.getLoaiKH());txtmota.setText(SP.getMota());
+
+            txtTenKhachHang.setText(SP.getTenKhachHang());
+            txtDiachi.setText(SP.getTenKhachHang());
+            txtSODienThoai.setText(SP.getSDT());
+            txtLoaiKhachHang.setText(SP.getLoaiKH());
+            txtmota.setText(SP.getMota());
         }
     }//GEN-LAST:event_cbbKieuKHItemStateChanged
 
     private void txtTimkiem1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimkiem1KeyReleased
         // TODO add your handling code here:
         String tuKhoa = txtTimkiem1.getText();
-        
+
         //Kết quả của tìm theo từ khóa ResultSet
         ResultSet rs = KhachHangBLL.LayTenKhachHang(tuKhoa);
-        
+
         //gọi hàm đổ dữ liệu sau khi tìm kiếm vào Table
-      KhachHangBLL.DanhSachTenKhachHang(rs, tblDanhSach);
+        KhachHangBLL.DanhSachTenKhachHang(rs, tblDanhSach);
     }//GEN-LAST:event_txtTimkiem1KeyReleased
 
     private void txtTimkiem2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimkiem2KeyReleased
         // TODO add your handling code here:
         String tuKhoa = txtTimkiem2.getText();
-        
+
         //Kết quả của tìm theo từ khóa ResultSet
         ResultSet rs = SanPhamBLL.LayTenSP(tuKhoa);
-        
+
         //gọi hàm đổ dữ liệu sau khi tìm kiếm vào Table
-      SanPhamBLL.DanhSachBanHang(rs, tblTenSanPham);
+        SanPhamBLL.DanhSachBanHang(rs, tblTenSanPham);
     }//GEN-LAST:event_txtTimkiem2KeyReleased
+
+    private void txtTimkiem3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimkiem3KeyReleased
+        // TODO add your handling code here:
+        String tuKhoa = txtTimkiem3.getText();
+
+        //Kết quả của tìm theo từ khóa ResultSet
+        ResultSet rs = KhachHangBLL.LayTenKhachHang2(tuKhoa);
+
+        //gọi hàm đổ dữ liệu sau khi tìm kiếm vào Table
+        KhachHangBLL.LayKHTheoMaKH(rs, tblBanHangKhach);
+    }//GEN-LAST:event_txtTimkiem3KeyReleased
 
     /**
      * @param args the command line arguments
@@ -1246,7 +1264,6 @@ public class FrmBanHang extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JPanel jpnBanHang;
     private javax.swing.JPanel jpnBaoCao;
@@ -1271,6 +1288,7 @@ public class FrmBanHang extends javax.swing.JFrame {
     private javax.swing.JTextField txtTenKhachHang;
     private javax.swing.JTextField txtTimkiem1;
     private javax.swing.JTextField txtTimkiem2;
+    private javax.swing.JTextField txtTimkiem3;
     private javax.swing.JTextField txtmota;
     // End of variables declaration//GEN-END:variables
 }
