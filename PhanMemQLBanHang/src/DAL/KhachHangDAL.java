@@ -51,7 +51,7 @@ public class KhachHangDAL {
     }
            public static KhachHangDTO LayKhachHangtheoMaDH(String maKH){
         ResultSet rs;
-        String cauTruyVanSQL = "Select * from khachhang where MaKH = '" + maKH + "'";
+        String cauTruyVanSQL = "Select * from khachhang where MaKH = '" + maKH + " '";
         
         rs = ConnectionDB.ExcuteQueryGetTable(cauTruyVanSQL);
         KhachHangDTO sp = new KhachHangDTO();
@@ -72,4 +72,13 @@ public class KhachHangDAL {
         
         return sp;
     }
+         public static ResultSet TimKH(String tuKhoa ){
+        ResultSet rs;        
+        String cauTruyVanSQL = "Select * from KhachHang "
+                + "where TenKH like N'%" + tuKhoa + "%' "
+                + "or SoDienThoai like N'%" + tuKhoa + "%'"
+                +"or DiaChi like N'%"+tuKhoa+"%'";
+        rs = ConnectionDB.ExcuteQueryGetTable(cauTruyVanSQL);
+         return rs;        
+    }  
 }

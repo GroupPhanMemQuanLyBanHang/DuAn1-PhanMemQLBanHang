@@ -8,6 +8,8 @@ package DAL;
 import DTO.SanPhamDTO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -52,5 +54,33 @@ public class SanPhamDAL {
         }
         
         return sp;
+    }
+        public static ResultSet LaySPTheoTenSP(String sp){
+            ResultSet rs;
+            String cautruyvan = "select * from SanPham where TenSanPham like N'%"+ sp +"%'";
+            rs = ConnectionDB.ExcuteQueryGetTable(cautruyvan);
+            return rs;
+        }
+        public static ResultSet LaySPTheoIDSanPham(String idsanpham){
+            ResultSet rs;
+            String cautruyvan = "select * from SanPham where IDSanPham = '"+ idsanpham +"'";
+            rs = ConnectionDB.ExcuteQueryGetTable(cautruyvan);
+            return rs;
+        }
+         public static ResultSet LayDanhSachSP(){
+            ResultSet rs;
+            String cautruyvan = "select * from SanPham";
+            rs =ConnectionDB.ExcuteQueryGetTable(cautruyvan);
+            return  rs;
+        }
+        public static void XoaSanPham(int IdSanPham) {
+        String cauTruyVan = "delete SanPham where IDSanPham = '" + IdSanPham +"'";
+        ConnectionDB.ExcuteQueryUpdate(cauTruyVan);
+    }
+    public static ResultSet LayThongTinSP(String idSP) {
+        ResultSet rs;
+        String SQLSelect = "select * from SanPham where IDSanPham  = "+idSP+" ";
+        rs = ConnectionDB.ExcuteQueryGetTable(SQLSelect);
+        return rs;
     }
 }
