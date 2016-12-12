@@ -5,7 +5,9 @@
  */
 package BLL;
 
+import DAL.KhachHangDAL;
 import DAL.SanPhamDAL;
+import DTO.ChiTietHoaDon;
 import DTO.SanPhamDTO;
 import Presentation.MainClass;
 import java.sql.ResultSet;
@@ -23,14 +25,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class SanPhamBLL {
     public static void DanhSachBanHang(ResultSet rs, JTable tableTam){
-        Object []objs = new Object[]{"Tên Sản Phẩm"};
+        Object []objs = new Object[]{"ID Sản phẩm","Tên Sản Phẩm"};
         DefaultTableModel tableModel = new DefaultTableModel(objs, 0);
         tableTam.setModel(tableModel);
         
         try {
             while(rs.next()){
-                Object[] item = new Object[1];
-                item[0] = rs.getString("TenSanPham");
+                Object[] item = new Object[2];
+                item[0] = rs.getString("IdSanPham");
+                item[1] = rs.getString("TenSanPham");
                 tableModel.addRow(item);
             }
         } catch (SQLException ex) {
@@ -76,7 +79,46 @@ public class SanPhamBLL {
         } catch (SQLException ex) {
             System.out.println(ex.toString());
         }
-    }   public static String[] InputDialogSoLuongSanPham(String tieuDe, String maSP){
+    }   
+    
+    public static ChiTietHoaDon TaoChiTietHoaDon(ResultSet rs, int soluong){
+        ChiTietHoaDon cthd = new ChiTietHoaDon();
+        try {
+            while(rs.next()){
+                
+                String tenSP = rs.getString("TenSanPham");
+                //int Soluong = rs.getInt("SoLuong");
+                int GiaBan = rs.getInt("GiaBan");
+                int ThanhTien = soluong*GiaBan;
+                int maSP = rs.getInt("IdSanPham");
+             cthd.setMaSP(maSP);
+             cthd.setTenSP(tenSP);
+             cthd.setSoluong(soluong);
+             cthd.setDonGia(GiaBan);
+             cthd.setThanhTien(ThanhTien);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+        return cthd;
+    }
+    
+    public static void DoDuLieuVaoJTableCTHD(ChiTietHoaDon cthd, JTable tableTam){
+        //Object []objs = new Object[]{"Tên Sản Phẩm", "Số Lượng", "Đơn giá","Thành tiền"};
+         DefaultTableModel tableModel = (DefaultTableModel) tableTam.getModel();
+        tableTam.setModel(tableModel);
+        
+       
+                Object[] item = new Object[4];
+                item[0] = cthd.getTenSP();
+                item[1] = cthd.getSoluong();
+                item[2] = cthd.getDonGia();
+                item[3] = cthd.getThanhTien();
+                tableModel.addRow(item);
+           
+    } 
+    
+    public static String[] InputDialogSoLuongSanPham(String tieuDe, String maSP){
         // Hàm tao table Để liên kế với  Jtable liên kết
         String[] info = new String[2];
         JLabel lblTenSP = new JLabel();
@@ -157,5 +199,31 @@ public class SanPhamBLL {
         
         tblTam.setValueAt(thanhTien, viTriTrung, 5);
         
+    }
+         public static void XoaSanPhamne(int maCanXoa) {
+            SanPhamDAL.XoaSanPham(maCanXoa);
+    }
+        public static void LayDanhSachSP(ResultSet rs, JTable tableTam){
+        Object []objs = new Object[]{"Tên Sản Phẩm", "Số Lượng", "Đơn giá","Thành tiền"};
+        DefaultTableModel tableModel = new DefaultTableModel(objs, 0);
+        tableTam.setModel(tableModel);
+        
+        try {
+            while(rs.next()){
+                Object[] item = new Object[4];
+                item[0] = rs.getString("TenSanPham");
+                item[1] = rs.getInt("SoLuong");
+                item[2] = rs.getString("GiaBan");
+                item[3] = rs.getString("GiaNhap");
+                tableModel.addRow(item);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+    }
+        public static ResultSet LayThongTinKH(String maSP){
+        ResultSet rs;
+        rs = SanPhamDAL.LayThongTinSP(maSP);   
+        return rs;
     }
 }

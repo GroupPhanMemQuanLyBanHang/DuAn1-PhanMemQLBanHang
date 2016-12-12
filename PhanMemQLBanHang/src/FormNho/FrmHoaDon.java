@@ -67,13 +67,23 @@ public class FrmHoaDon extends javax.swing.JFrame {
 
         jLabel6.setText("Tên khách hàng :");
 
+        jTextField1.setEditable(false);
+
         jLabel7.setText("Địa chỉ :");
+
+        jTextField2.setEditable(false);
 
         jLabel8.setText("Tên hàng :");
 
+        jTextField3.setEditable(false);
+
         jLabel9.setText("Số lượng :");
 
+        jTextField4.setEditable(false);
+
         jLabel10.setText("Tổng tiền :");
+
+        jTextField5.setEditable(false);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
