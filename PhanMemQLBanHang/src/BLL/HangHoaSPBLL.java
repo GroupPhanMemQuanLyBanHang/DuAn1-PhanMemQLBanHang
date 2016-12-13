@@ -115,20 +115,21 @@ public class HangHoaSPBLL {
         
     }
   public static void DoDuLieuVaoJTableDonHang(ResultSet rs, JTable tableTam){
-        Object []objs = new Object[]{"Mã Loại Sản Phẩm","Đơn Hàng", "Đơn Vị tính", "Số Lượng","Giá Mua","Giá bán","Bảo hành"};
+        Object []objs = new Object[]{"Mã Sản Phẩm","Đơn Hàng","Tên Loại Sản Phẩm", "Đơn Vị tính", "Số Lượng","Giá Mua","Giá bán","Bảo hành"};
         DefaultTableModel tableModel = new DefaultTableModel(objs, 0);
         tableTam.setModel(tableModel);
         
         try {
             while(rs.next()){
-                Object[] item = new Object[7];
-                 item[0] = rs.getString("MaLoaiSanPham");
+                Object[] item = new Object[8];
+                 item[0] = rs.getInt("IDSanPham");
                 item[1] = rs.getString("TenSanPham");
-                item[2] = rs.getString("DonViTinh");
-                item[3] = rs.getInt("SoLuong");
-                item[4]= rs.getInt("GiaNhap");
-                item[5] = rs.getInt("GiaBan");
-                item[6] = rs.getString("HanBaoHanh");
+                item[2] = rs.getString("TenLoaiSanPham");
+                item[3] = rs.getString("DonViTinh");
+                item[4] = rs.getInt("SoLuong");
+                item[5]= rs.getInt("GiaNhap");
+                item[6] = rs.getInt("GiaBan");
+                item[7] = rs.getString("HanBaoHanh");
                 tableModel.addRow(item);
             }
         } catch (SQLException ex) {
@@ -159,7 +160,7 @@ public class HangHoaSPBLL {
     public static void XoaDonHang(String maCanXoa){
         if(maCanXoa.equals("")){
         }else{
-             HangHoaSPDAL.CauTruyVanXoaHoaDon(maCanXoa);
+             HangHoaSPDAL.CauTruyVanXoaDonHang(maCanXoa);
         }
     }
      

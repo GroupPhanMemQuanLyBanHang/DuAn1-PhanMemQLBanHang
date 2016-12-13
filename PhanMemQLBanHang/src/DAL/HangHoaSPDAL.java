@@ -27,13 +27,13 @@ public class HangHoaSPDAL {
         ConnectionDB.ExcuteQueryUpdate(SQLSua);
     }
 
-    public static void CauTruyVanXoaHoaDon(String TenSanPham) {
+    public static void CauTruyVanXoaDonHang(String TenSanPham) {
         String SQlXoa = "delete a  from SanPham a INNER JOIN LoaiSanPham b on a.MaLoaiSanPham = b.MaLoaiSanPham where a.IDSanPham = "+TenSanPham+"  " ;
         ConnectionDB.ExcuteQueryUpdate(SQlXoa);
     }
     public static ResultSet CauTruyVanLayThongTinHangHoa() {
         ResultSet rs;
-        String SQLSelect = "select * from SanPham ";
+        String SQLSelect = "select * from SanPham inner join LoaiSanPham on SanPham.MaLoaiSanPham = LoaiSanPham.MaLoaiSanPham ";
         rs = ConnectionDB.ExcuteQueryGetTable(SQLSelect);
         return rs;
     }

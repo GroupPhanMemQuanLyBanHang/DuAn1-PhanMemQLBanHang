@@ -79,6 +79,7 @@ public class BaoHanhBLL {
         } catch (SQLException ex) {
             System.out.println(ex.toString());
         }
+        
     }
       public static BaohanhDTO LayBaoHanhtheoMaBH(String MaDH){
         BaohanhDTO DH = new BaohanhDTO();

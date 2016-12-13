@@ -322,11 +322,24 @@ private Date today = new Date();
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Tổng cộng :");
 
+        txttongcong.setEditable(false);
+        txttongcong.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txttongcongKeyReleased(evt);
+            }
+        });
+
         btnluu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/save.png"))); // NOI18N
         btnluu.setText("Lưu");
 
         btnhuy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/huy.png"))); // NOI18N
         btnhuy.setText("Hủy");
+        btnhuy.setToolTipText("");
+        btnhuy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnhuyActionPerformed(evt);
+            }
+        });
 
         tblbangluuhang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -427,6 +440,8 @@ private Date today = new Date();
            
             String maBaoHanh = ComboboxBLL.getSelectedItemID(cbbTenLoaiSP);
         BaohanhDTO kh = BaoHanhBLL.LayBaoHanhtheoMaBH(maBaoHanh);
+        
+        txttongcong.setText(HangHoaSPBLL.TinhTien(tblbangluuhang, 5) + " VND");
     }//GEN-LAST:event_formWindowOpened
 
     private void cbbtenkhachhangItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbtenkhachhangItemStateChanged
@@ -469,6 +484,18 @@ private Date today = new Date();
         txtgia.setText(tblbangluuhang.getValueAt(index, 5).toString());
         txtngaymua.setText(tblbangluuhang.getValueAt(index, 6).toString());
     }//GEN-LAST:event_tblbangluuhangMouseClicked
+
+    private void btnhuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhuyActionPerformed
+        // TODO add your handling code here:
+        FrmChinh  frm = new FrmChinh();
+        frm.show();
+        this.dispose();
+    }//GEN-LAST:event_btnhuyActionPerformed
+
+    private void txttongcongKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttongcongKeyReleased
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txttongcongKeyReleased
    
     /**
      * @param args the command line arguments
