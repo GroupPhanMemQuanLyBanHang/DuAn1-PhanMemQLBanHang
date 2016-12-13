@@ -3,11 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/GitHub/PhanMemQuanLyBanHang/DuAn1-PhanMemQLBanHang/PhanMemQLBanHang/src/DAL/SanPhamDAL.java</file>
-            <file>file:/D:/GitHub/PhanMemQuanLyBanHang/DuAn1-PhanMemQLBanHang/PhanMemQLBanHang/src/BLL/SanPhamBLL.java</file>
-            <file>file:/D:/GitHub/PhanMemQuanLyBanHang/DuAn1-PhanMemQLBanHang/PhanMemQLBanHang/src/BLL/KhachHangBLL.java</file>
-            <file>file:/D:/GitHub/PhanMemQuanLyBanHang/DuAn1-PhanMemQLBanHang/PhanMemQLBanHang/src/DAL/KhachHangDAL.java</file>
-            <file>file:/D:/GitHub/PhanMemQuanLyBanHang/DuAn1-PhanMemQLBanHang/PhanMemQLBanHang/src/Presentation/FrmBanHang.java</file>
+            <file>file:/D:/GitHub/PhanMemQuanLyBanHang/DuAn1-PhanMemQLBanHang/PhanMemQLBanHang/src/Presentation/frmDangNhap.java</file>
         </group>
     </open-files>
 </project-private>

@@ -60,45 +60,33 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jLabel1" min="-2" pref="296" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblTendangnhap" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
-                              <Component id="txtTendangnhap" alignment="0" min="-2" pref="148" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblMatkhau" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
-                              <Component id="pswMatkhau" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnDangnhap" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="lblTendangnhap" min="-2" pref="109" max="-2" attributes="0"/>
+                      <Component id="txtTendangnhap" max="32767" attributes="0"/>
+                      <Component id="lblMatkhau" min="-2" pref="99" max="-2" attributes="0"/>
+                      <Component id="pswMatkhau" pref="153" max="32767" attributes="0"/>
+                      <Component id="btnDangnhap" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="0" pref="14" max="32767" attributes="0"/>
+                  <EmptySpace pref="40" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jLabel1" alignment="0" pref="183" max="32767" attributes="0"/>
+              <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtTendangnhap" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="pswMatkhau" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblTendangnhap" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblMatkhau" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="lblTendangnhap" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="txtTendangnhap" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="lblMatkhau" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="pswMatkhau" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnDangnhap" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="30" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -116,7 +104,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblTendangnhap">
           <Properties>
-            <Property name="text" type="java.lang.String" value="T&#xea;n &#x110;&#x103;ng nh&#x1ead;p"/>
+            <Property name="text" type="java.lang.String" value="T&#xea;n &#x110;&#x103;ng nh&#x1ead;p :"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="pswMatkhau">
@@ -126,7 +114,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblMatkhau">
           <Properties>
-            <Property name="text" type="java.lang.String" value="M&#x1ead;t Kh&#x1ea9;u?"/>
+            <Property name="text" type="java.lang.String" value="M&#x1ead;t Kh&#x1ea9;u :"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnDangnhap">
