@@ -467,6 +467,7 @@ private Date today = new Date();
         BaoHanhBLL.ThemPhanBaoHanh(BaoHanh);
         ResultSet rs  = BaoHanhBLL.LayTatCaBaoHanh();
         BaoHanhBLL.DoDuLieuVaoJTableBaoHanh(rs, tblbangluuhang);
+        txttongcong.setText(HangHoaSPBLL.TinhTien(tblbangluuhang, 5) + " VND");
     }//GEN-LAST:event_btnghiActionPerformed
 
     private void cbbTenLoaiSPItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbTenLoaiSPItemStateChanged
@@ -494,7 +495,7 @@ private Date today = new Date();
 
     private void txttongcongKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttongcongKeyReleased
         // TODO add your handling code here:
-        
+         txttongcong.setText(HangHoaSPBLL.TinhTien(tblbangluuhang, 5) + " VND");
     }//GEN-LAST:event_txttongcongKeyReleased
    
     /**
