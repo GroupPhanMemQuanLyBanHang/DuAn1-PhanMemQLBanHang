@@ -219,7 +219,6 @@ public class FrmSuaNCC extends javax.swing.JFrame {
         txtTenNCC.setText(tblNCC.getValueAt(Vitridongduocchon, 1).toString());
         txtDiaChi.setText(tblNCC.getValueAt(Vitridongduocchon, 2).toString());
         txtSDT.setText(tblNCC.getValueAt(Vitridongduocchon, 3).toString());
-        txtMoTa.setText(tblNCC.getValueAt(Vitridongduocchon, 4).toString());
     }//GEN-LAST:event_tblNCCMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

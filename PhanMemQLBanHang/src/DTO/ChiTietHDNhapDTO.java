@@ -15,20 +15,20 @@ public class ChiTietHDNhapDTO {
     int idsp;
     int soluong;
     String donvitinh;
-    double giaban;
+    double gianhap;
     double thanhtien;
     String mota;
 
     public ChiTietHDNhapDTO() {
     }
 
-    public ChiTietHDNhapDTO(int machitiethdnhap, int mahdnhap, int idsp, int soluong, String donvitinh, double giaban, double thanhtien, String mota) {
+    public ChiTietHDNhapDTO(int machitiethdnhap, int mahdnhap, int idsp, int soluong, String donvitinh, double gianhap, double thanhtien, String mota) {
         this.machitiethdnhap = machitiethdnhap;
         this.mahdnhap = mahdnhap;
         this.idsp = idsp;
         this.soluong = soluong;
         this.donvitinh = donvitinh;
-        this.giaban = giaban;
+        this.gianhap = gianhap;
         this.thanhtien = thanhtien;
         this.mota = mota;
     }
@@ -53,8 +53,8 @@ public class ChiTietHDNhapDTO {
         return donvitinh;
     }
 
-    public double getGiaban() {
-        return giaban;
+    public double getGianhap() {
+        return gianhap;
     }
 
     public double getThanhtien() {       
@@ -85,8 +85,8 @@ public class ChiTietHDNhapDTO {
         this.donvitinh = donvitinh;
     }
 
-    public void setGiaban(double giaban) {
-        this.giaban = giaban;
+    public void setGianhap(double gianhap) {
+        this.gianhap = gianhap;
     }
 
     public void setThanhtien(double thanhtien) {

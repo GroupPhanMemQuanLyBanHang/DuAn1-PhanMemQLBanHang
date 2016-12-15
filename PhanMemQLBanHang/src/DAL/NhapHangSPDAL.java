@@ -38,6 +38,12 @@ public static ResultSet LayMaVaTenSanPham(){
     rs = ConnectionDB.ExcuteQueryGetTable(cautruyvan);
     return rs;
 }
+public static ResultSet LayTenLoaiSanPham(){
+    ResultSet rs;
+    String cautruyvan = "select* from LoaiSanPham ";
+    rs = ConnectionDB.ExcuteQueryGetTable(cautruyvan);
+    return rs;
+}
 public static ResultSet TimSanPhamTheoMaVaTen(String tukhoa){
     ResultSet rs;
     String cautruyvan = "select * from SanPham "
@@ -55,4 +61,10 @@ public static ResultSet TimSanPhamTheoMaVaTen(String tukhoa){
         String cautruyvan = "delete SanPham where IDSanPham= "+IDSP+"" ;
         ConnectionDB.ExcuteQueryUpdate(cautruyvan);
     }
+    public static ResultSet LayThongTinSP(String maloaisp){
+    ResultSet rs;
+    String cautruyvan = "select * from SanPham inner join LoaiSanPham on SanPham.MaLoaiSanPham=LoaiSanPham.MaLoaiSanPham where SanPham.MaLoaiSanPham = "+maloaisp+" ";
+    rs = ConnectionDB.ExcuteQueryGetTable(cautruyvan);
+    return rs;
+}
 }

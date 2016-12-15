@@ -18,17 +18,16 @@ import javax.swing.table.DefaultTableModel;
  */
 public class NhaCungCapBLL {
     public static void DoDuLieu(ResultSet rs, JTable ncc) {
-        Object[] objs = new Object[]{"Mã Nhà Cung Cấp", "Tên Nhà Cung Cấp", "Địa Chỉ","Số Điện Thoại","Mô Tả"};
+        Object[] objs = new Object[]{"Mã Nhà Cung Cấp", "Tên Nhà Cung Cấp", "Địa Chỉ","Số Điện Thoại"};
         DefaultTableModel tableModel = new DefaultTableModel(objs, 0);
         ncc.setModel(tableModel);
         try {
             while (rs.next()) {
-                Object[] item = new Object[5];
+                Object[] item = new Object[4];
                 item[0] = rs.getInt("MaNhaCungCap");
                 item[1] = rs.getString("TenNhaCungCap");
                 item[2] = rs.getString("DiaChi");
-                item[3] = rs.getInt("SoDienThoai");
-                item[4] = rs.getString("MoTa");               
+                item[3] = rs.getString("SoDienThoai");             
                 tableModel.addRow(item);
             }
         } catch (SQLException ex) {
