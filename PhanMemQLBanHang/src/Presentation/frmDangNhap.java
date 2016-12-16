@@ -44,6 +44,7 @@ public class frmDangNhap extends javax.swing.JFrame {
         btnDangnhap = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Đăng nhập");
 
         pnlDangnhap.setBackground(new java.awt.Color(255, 255, 255));
         pnlDangnhap.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 255)));

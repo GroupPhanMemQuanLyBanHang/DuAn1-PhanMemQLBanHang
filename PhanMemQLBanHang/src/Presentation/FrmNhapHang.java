@@ -96,6 +96,7 @@ public class FrmNhapHang extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Nhập hàng");
 
         jLabel1.setText("Nhóm :");
 

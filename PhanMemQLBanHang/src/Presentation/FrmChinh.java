@@ -52,6 +52,7 @@ public class FrmChinh extends javax.swing.JFrame {
         mngioithieu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Phần mềm quản lý bán hàng");
         setBackground(new java.awt.Color(153, 153, 255));
         setMinimumSize(new java.awt.Dimension(800, 500));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -67,7 +68,7 @@ public class FrmChinh extends javax.swing.JFrame {
         lblXinChao.setForeground(new java.awt.Color(255, 255, 255));
         lblXinChao.setText("a");
         getContentPane().add(lblXinChao);
-        lblXinChao.setBounds(150, 100, 230, 16);
+        lblXinChao.setBounds(150, 100, 230, 14);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1479923089_Shopping_cart.png"))); // NOI18N
         jButton1.setText("Bán hàng");

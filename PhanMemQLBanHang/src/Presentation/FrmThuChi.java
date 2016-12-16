@@ -56,6 +56,7 @@ public class FrmThuChi extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Thu chi");
 
         tbbthuchi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

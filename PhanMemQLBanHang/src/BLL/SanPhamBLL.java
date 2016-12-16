@@ -63,17 +63,18 @@ public class SanPhamBLL {
   }
    
     public static void DoDuLieuVaoJTableSanPham(ResultSet rs, JTable tableTam){
-        Object []objs = new Object[]{"Tên Sản Phẩm", "Số Lượng", "Đơn giá","Thành tiền"};
+        Object []objs = new Object[]{"Mã Sản Phẩm","Tên Sản Phẩm", "Số Lượng", "Đơn giá","Thành tiền"};
         DefaultTableModel tableModel = new DefaultTableModel(objs, 0);
         tableTam.setModel(tableModel);
         
         try {
             while(rs.next()){
-                Object[] item = new Object[4];
-                item[0] = rs.getString("TenSanPham");
-                item[1] = rs.getInt("SoLuong");
-                item[2] = rs.getString("GiaBan");
-                item[3] = rs.getString("GiaNhap");
+                Object[] item = new Object[5];
+                item[0] = rs.getString("IDSanPham");
+                item[1] = rs.getString("TenSanPham");
+                item[2] = rs.getInt("SoLuong");
+                item[3] = rs.getString("GiaBan");
+                item[4] = rs.getString("GiaNhap");
                 tableModel.addRow(item);
             }
         } catch (SQLException ex) {
@@ -109,11 +110,12 @@ public class SanPhamBLL {
         tableTam.setModel(tableModel);
         
        
-                Object[] item = new Object[4];
-                item[0] = cthd.getTenSP();
-                item[1] = cthd.getSoluong();
-                item[2] = cthd.getDonGia();
-                item[3] = cthd.getThanhTien();
+                Object[] item = new Object[5];
+                item[0] = cthd.getMaSP();
+                item[1] = cthd.getTenSP();
+                item[2] = cthd.getSoluong();
+                item[3] = cthd.getDonGia();
+                item[4] = cthd.getThanhTien();
                 tableModel.addRow(item);
            
     } 
@@ -200,9 +202,7 @@ public class SanPhamBLL {
         tblTam.setValueAt(thanhTien, viTriTrung, 5);
         
     }
-         public static void XoaSanPhamne(int maCanXoa) {
-            SanPhamDAL.XoaSanPham(maCanXoa);
-    }
+
         public static void LayDanhSachSP(ResultSet rs, JTable tableTam){
         Object []objs = new Object[]{"Tên Sản Phẩm", "Số Lượng", "Đơn giá","Thành tiền"};
         DefaultTableModel tableModel = new DefaultTableModel(objs, 0);
