@@ -21,24 +21,18 @@ public class ChiTietHDNhapDAL {
         ConnectionDB.ExcuteQueryUpdate(cautruyvan);
     }
 
+    public static void Sua(ChiTietHDNhapDTO CTHDN) {
+        String cautruyvan = "update ChiTietHDNhap set SoLuong=N'" + CTHDN.getSoluong()+ "',DonViTinh='"+CTHDN.getDonvitinh()+"',DonGia='"+CTHDN.getGianhap()+"',ThanhTien='"+CTHDN.getThanhtien()+"',MoTa='"+CTHDN.getMota()+"' where MaChiTietHDNhap =" + CTHDN.getMachitiethdnhap();
+        ConnectionDB.ExcuteQueryUpdate(cautruyvan);
+    }
+    public static void Xoa(String macthdn) {
+        String cautruyvan = "delete ChiTietHDNhap where MaChiTietHDNhap= " + macthdn + "";
+        ConnectionDB.ExcuteQueryUpdate(cautruyvan);
+    }
     public static ResultSet LayTatCaHDNhap() {
         ResultSet rs;
         String cautruyvan = "select * from ChiTietHDNhap";
         rs = ConnectionDB.ExcuteQueryGetTable(cautruyvan);
         return rs;
-    }
-
-    public static ResultSet LayTatCaHD() {
-        ResultSet rs;
-        String cautruyvan = "select * from HoaDonNhap";
-        rs = ConnectionDB.ExcuteQueryGetTable(cautruyvan);
-        return rs;
-    }
-
-    public static ResultSet LayMaHDNhap(int mahdnhap) {
-        ResultSet rs;
-        String cauTruyVan = "select * from HoaDonNhap where MaHoaDonNhap = " + mahdnhap;
-        rs = ConnectionDB.ExcuteQueryGetTable(cauTruyVan);
-        return rs;
-    }
+    } 
 }

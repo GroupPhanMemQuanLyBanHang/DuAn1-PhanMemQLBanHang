@@ -20,30 +20,7 @@ import javax.swing.table.DefaultTableModel;
 public class ChiTietHDNhapBLL {    
       public static void Them(ChiTietHDNhapDTO HDN){        
               ChiTietHDNhapDAL.Them(HDN);         
-      }
-      public static void DanhSachMaHD(ResultSet rs, JTable tableTam){
-        Object []objs = new Object[]{"Mã HD Nhập","Số HD Nhập","Ngày Tạo","Mã NV","Mã NCC","Tình Trạng","Tổng Tiền","Mô Tả"};
-        DefaultTableModel tableModel = new DefaultTableModel(objs, 0);
-        tableTam.setModel(tableModel);
-        
-        try {
-            while(rs.next()){
-                Object[] item = new Object[8];
-                item[0] = rs.getInt("MaHoaDonNhap");
-                item[1] = rs.getString("SoHDNhap"); 
-                item[2] = rs.getString("NgayTao"); 
-                item[3] = rs.getInt("MaNhanVien"); 
-                item[4] = rs.getInt("MaNhaCungCap"); 
-                item[5] = rs.getString("TinhTrang"); 
-                item[6] = rs.getDouble("TongTien"); 
-                item[7] = rs.getString("MoTa"); 
-                tableModel.addRow(item);
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.toString());
-        }
-        
-    }
+      }     
        public static void DoDuLieu(ResultSet rs, JTable cthdn) {
         Object[] objs = new Object[]{"Mã Chi Tiết HD Nhập", "Mã HD Nhập", "ID Sản Phẩm","Số Lượng","Đơn Vị Tính","Đơn Giá","Thành Tiền","Mô Tả"};
         DefaultTableModel tableModel = new DefaultTableModel(objs, 0);
@@ -64,54 +41,20 @@ public class ChiTietHDNhapBLL {
         } catch (SQLException ex) {
             System.out.println(ex.toString());
         }
-    }
-       public static void DoDuLieuVaoCTHDN(ChiTietHDNhapDTO cthd, JTable tableTam){
-        //Object []objs = new Object[]{"Tên Sản Phẩm", "Số Lượng", "Đơn giá","Thành tiền"};
-         DefaultTableModel tableModel = (DefaultTableModel) tableTam.getModel();
-        tableTam.setModel(tableModel);       
-       
-                Object[] item = new Object[8];
-                item[0] = cthd.getMachitiethdnhap();
-                item[1] = cthd.getMahdnhap();
-                item[2] = cthd.getIdsp();
-                item[3] = cthd.getSoluong();
-                item[4] = cthd.getDonvitinh();
-                item[5] = cthd.getGianhap();
-                item[6] = cthd.getThanhtien();
-                item[7] = cthd.getMota();
-                
-                tableModel.addRow(item);
-           
-    } 
-      public static ChiTietHDNhapDTO TaoChiTietHDNhap(ResultSet rs,int soluong){
-        ChiTietHDNhapDTO cthdn = new ChiTietHDNhapDTO();    
-        try {
-            while(rs.next()){
-                int macthd = rs.getInt("MaChiTietHDNhap");
-                int mahdn = rs.getInt("MaHoaDonNhap");
-                int idsp = rs.getInt("IDSanPham");
-                String donvitinh = rs.getString("DonViTinh");
-                double dongia = rs.getInt("DonGia");
-                double thanhtien = soluong*dongia;
-                String mota = rs.getString("MoTa");
-                
-                cthdn.setMachitiethdnhap(macthd);
-                cthdn.setMahdnhap(mahdn);
-                cthdn.setIdsp(idsp);
-                cthdn.setDonvitinh(donvitinh);
-                cthdn.setGianhap(dongia);
-                cthdn.setThanhtien(thanhtien);
-                cthdn.setMota(mota);
-                
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.toString());
-        }
-        return cthdn;
-    }
+    }              
      public static ResultSet LayTatCaHoaDonNhap() {     
         ResultSet rs;
         rs = ChiTietHDNhapDAL.LayTatCaHDNhap();
         return rs;  
     }
+     public static void Sua(ChiTietHDNhapDTO cthdn) {       
+            ChiTietHDNhapDAL.Sua(cthdn);      
+    }
+     public static void Xoa(String macthdn) {
+        if (macthdn.equals("")) {
+
+        } else {
+            ChiTietHDNhapDAL.Xoa(macthdn);
+        }
+    }   
 }
