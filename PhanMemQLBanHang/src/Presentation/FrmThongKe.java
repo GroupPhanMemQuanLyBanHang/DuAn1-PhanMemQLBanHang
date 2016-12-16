@@ -34,7 +34,7 @@ public class FrmThongKe extends javax.swing.JFrame {
         tbploinhuancT = new javax.swing.JTabbedPane();
         jPanel38 = new javax.swing.JPanel();
         jPanel43 = new javax.swing.JPanel();
-        cbbngaythangnamTongquan = new javax.swing.JComboBox<>();
+        cbbngaythangnamTongquan = new javax.swing.JComboBox<String>();
         spnngaytongquan = new javax.swing.JSpinner();
         jLabel18 = new javax.swing.JLabel();
         spntongquan2 = new javax.swing.JSpinner();
@@ -45,8 +45,9 @@ public class FrmThongKe extends javax.swing.JFrame {
         btnPrint = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Thống kê");
 
-        cbbngaythangnamTongquan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo ngày", "Theo tháng" }));
+        cbbngaythangnamTongquan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Theo ngày", "Theo tháng" }));
 
         jLabel18.setText("-");
 

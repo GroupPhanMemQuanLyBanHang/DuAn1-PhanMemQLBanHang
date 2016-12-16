@@ -76,7 +76,7 @@ private Date today = new Date();
         txtdienthoai = new javax.swing.JTextField();
         cbngayhentra = new javax.swing.JCheckBox();
         txtngayhentra = new javax.swing.JTextField();
-        cbbtenkhachhang = new javax.swing.JComboBox<>();
+        cbbtenkhachhang = new javax.swing.JComboBox<String>();
         jPanel6 = new javax.swing.JPanel();
         lbltenhang = new javax.swing.JLabel();
         lblsoseri = new javax.swing.JLabel();
@@ -92,7 +92,7 @@ private Date today = new Date();
         txtsoluong = new javax.swing.JTextField();
         txtgia = new javax.swing.JTextField();
         txtngaymua = new javax.swing.JTextField();
-        cbbTenLoaiSP = new javax.swing.JComboBox<>();
+        cbbTenLoaiSP = new javax.swing.JComboBox<String>();
         jLabel1 = new javax.swing.JLabel();
         txttongcong = new javax.swing.JTextField();
         btnluu = new javax.swing.JButton();
@@ -101,6 +101,7 @@ private Date today = new Date();
         tblbangluuhang = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Bảo hành");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -144,7 +145,7 @@ private Date today = new Date();
         txtngayhentra.setEditable(false);
         txtngayhentra.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        cbbtenkhachhang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbbtenkhachhang.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbbtenkhachhang.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbbtenkhachhangItemStateChanged(evt);
@@ -240,7 +241,7 @@ private Date today = new Date();
             }
         });
 
-        cbbTenLoaiSP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbbTenLoaiSP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbbTenLoaiSP.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbbTenLoaiSPItemStateChanged(evt);

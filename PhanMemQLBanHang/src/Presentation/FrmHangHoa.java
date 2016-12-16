@@ -56,7 +56,7 @@ public class FrmHangHoa extends javax.swing.JFrame {
         tbldonhang = new javax.swing.JTable();
         btnxuat = new javax.swing.JButton();
         lbltimkiem = new javax.swing.JLabel();
-        cbbLoaiHanghoa = new javax.swing.JComboBox<>();
+        cbbLoaiHanghoa = new javax.swing.JComboBox<String>();
         jPanel2 = new javax.swing.JPanel();
         cbbNhomHang = new javax.swing.JComboBox();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -67,6 +67,7 @@ public class FrmHangHoa extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Hàng hóa");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -143,7 +144,7 @@ public class FrmHangHoa extends javax.swing.JFrame {
             }
         });
 
-        cbbLoaiHanghoa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IPhone", "Item 2", "Item 3", "Item 4" }));
+        cbbLoaiHanghoa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "IPhone", "Item 2", "Item 3", "Item 4" }));
         cbbLoaiHanghoa.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbbLoaiHanghoaItemStateChanged(evt);

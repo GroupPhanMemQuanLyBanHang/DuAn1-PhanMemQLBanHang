@@ -37,7 +37,7 @@ public class SanPhamDAL {
         SanPhamDTO sp = new SanPhamDTO();
         try {
             while(rs.next()){
-                sp.setIdSanPham(rs.getInt("IdSanPham"));
+                sp.setIdSanPham(rs.getInt("IDSanPham"));
                 sp.setMaSanPham(rs.getInt("maSP"));
                 sp.setMaLoaiSanPham(rs.getInt("maLoaiSP"));
                 sp.setTenSanPham(rs.getString("tenSP"));
@@ -73,10 +73,6 @@ public class SanPhamDAL {
             rs =ConnectionDB.ExcuteQueryGetTable(cautruyvan);
             return  rs;
         }
-        public static void XoaSanPham(int IdSanPham) {
-        String cauTruyVan = "delete SanPham where IDSanPham = '" + IdSanPham +"'";
-        ConnectionDB.ExcuteQueryUpdate(cauTruyVan);
-    }
     public static ResultSet LayThongTinSP(String idSP) {
         ResultSet rs;
         String SQLSelect = "select * from SanPham where IDSanPham  = "+idSP+" ";
