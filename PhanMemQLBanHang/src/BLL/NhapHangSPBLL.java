@@ -18,20 +18,20 @@ import javax.swing.table.DefaultTableModel;
  */
 public class NhapHangSPBLL {
     public static void DanhSachSanPham(ResultSet rs, JTable tableTam){
-        Object []objs = new Object[]{"","","","","","","",""};
+        Object []objs = new Object[]{"","","","","",""};
         DefaultTableModel tableModel = new DefaultTableModel(objs, 0);
         tableTam.setModel(tableModel);
         
         try {
             while(rs.next()){
-                Object[] item = new Object[7];
+                Object[] item = new Object[6];
                 item[0] = rs.getInt("IDSanPham");
                 item[1] = rs.getString("TenSanPham");
-                item[2] = rs.getInt("Imei");                                      
-                item[3] = rs.getDouble("GiaBan");
+                item[2] = rs.getString("Imei");                                      
+                item[3] = rs.getDouble("GiaNhap");
                 item[4] = rs.getString("DonViTinh");
                 item[5] = rs.getString("HanBaoHanh");
-                item[6] = rs.getString("MoTa");
+               
                 tableModel.addRow(item);
             }
         } catch (SQLException ex) {
@@ -67,13 +67,7 @@ public class NhapHangSPBLL {
             return false;
         }
         return ketqua;
-    }     
-      public static void ThemTenSP(NhapHangSPDTO TTSP){
-          boolean ketquakiemtra = KiemTraTenSP(TTSP);
-          if(ketquakiemtra){
-              NhapHangSPDAL.ThemTenSP(TTSP);
-          }
-      }
+    }          
       public static void SuaTenSP(NhapHangSPDTO TTSP) {
         boolean ketquakiemtra = KiemTraTenSP(TTSP);
         if (ketquakiemtra) {
@@ -90,6 +84,11 @@ public class NhapHangSPBLL {
       public static ResultSet LayTatCaTenSP() {
         ResultSet rs;
         rs = NhapHangSPDAL.LayMaVaTenSanPham();
+        return rs;
+    }
+      public static ResultSet LaySanPhamTheoTen(String maloaisp) {
+        ResultSet rs;
+        rs = NhapHangSPDAL.LayThongTinSP(maloaisp);
         return rs;
     }
       public static ResultSet LaySanPhamTheoTuKhoa(String tukhoa){

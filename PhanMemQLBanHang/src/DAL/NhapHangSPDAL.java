@@ -20,6 +20,12 @@ public class NhapHangSPDAL {
                 + ",'"+TSP.getDonvitinh()+"','"+TSP.getHanbaohanh()+"','"+TSP.getMota()+"')";            
         ConnectionDB.ExcuteQueryUpdate(cautruyvan);
     }
+    public static ResultSet LaySPTheoIDSP(int idsp){
+            ResultSet rs;
+            String cauTruyVan = "select * from SanPham where IDSanPham = " + idsp; 
+            rs = ConnectionDB.ExcuteQueryGetTable(cauTruyVan);
+            return rs;
+        }   
 public static ResultSet SelectSP(){
         ResultSet rs;
         String cautruyvan = "select * from SanPham";
@@ -28,7 +34,13 @@ public static ResultSet SelectSP(){
     }
 public static ResultSet LayMaVaTenSanPham(){
     ResultSet rs;
-    String cautruyvan = "select IDSanPham,TenSanPham from SanPham";
+    String cautruyvan = "select IDSanPham,TenSanPham from SanPham ";
+    rs = ConnectionDB.ExcuteQueryGetTable(cautruyvan);
+    return rs;
+}
+public static ResultSet LayTenLoaiSanPham(){
+    ResultSet rs;
+    String cautruyvan = "select* from LoaiSanPham ";
     rs = ConnectionDB.ExcuteQueryGetTable(cautruyvan);
     return rs;
 }
@@ -40,12 +52,6 @@ public static ResultSet TimSanPhamTheoMaVaTen(String tukhoa){
     rs = ConnectionDB.ExcuteQueryGetTable(cautruyvan);
     return rs;
 }
-public static void ThemTenSP(NhapHangSPDTO TTSP) {
-        String cautruyvan = "insert into SanPham(MaLoaiSanPham,TenSanPham,Imei,NgayNhap,GiaNhap,SoLuong,GiaBan,DonViTinh,HanBaoHanh,MoTa)"
-                + "values(N'"+TTSP.getTensp()+"')";
-        ConnectionDB.ExcuteQueryUpdate(cautruyvan);
-    }
-
     public static void SuaTenSP(NhapHangSPDTO TTSP) {
         String cautruyvan = "update SanPham set TenSanPham=N'" + TTSP.getTensp() + "'where IDSanPham =" + TTSP.getIdsp();
         ConnectionDB.ExcuteQueryUpdate(cautruyvan);
@@ -55,4 +61,10 @@ public static void ThemTenSP(NhapHangSPDTO TTSP) {
         String cautruyvan = "delete SanPham where IDSanPham= "+IDSP+"" ;
         ConnectionDB.ExcuteQueryUpdate(cautruyvan);
     }
+    public static ResultSet LayThongTinSP(String maloaisp){
+    ResultSet rs;
+    String cautruyvan = "select * from SanPham inner join LoaiSanPham on SanPham.MaLoaiSanPham=LoaiSanPham.MaLoaiSanPham where SanPham.MaLoaiSanPham = "+maloaisp+" ";
+    rs = ConnectionDB.ExcuteQueryGetTable(cautruyvan);
+    return rs;
+}
 }
