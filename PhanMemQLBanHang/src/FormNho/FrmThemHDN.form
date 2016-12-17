@@ -178,6 +178,9 @@
     <Component class="javax.swing.JTextField" name="txtSoHDN">
     </Component>
     <Component class="javax.swing.JTextField" name="txtMaNCC">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMaNCCActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNgayTao">
     </Component>

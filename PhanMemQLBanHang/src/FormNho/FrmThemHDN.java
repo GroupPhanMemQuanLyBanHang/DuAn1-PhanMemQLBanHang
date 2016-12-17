@@ -76,6 +76,12 @@ public class FrmThemHDN extends javax.swing.JFrame {
             }
         });
 
+        txtMaNCC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMaNCCActionPerformed(evt);
+            }
+        });
+
         btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Them.png"))); // NOI18N
         btnThem.setText("Thêm");
         btnThem.addActionListener(new java.awt.event.ActionListener() {
@@ -201,6 +207,11 @@ public class FrmThemHDN extends javax.swing.JFrame {
         // TODO add your handling code here:
         HoaDonNhapBLL.LayMaNV();
     }//GEN-LAST:event_txtMaNVActionPerformed
+
+    private void txtMaNCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaNCCActionPerformed
+        // TODO add your handling code here:
+        HoaDonNhapBLL.LayMaNCC();
+    }//GEN-LAST:event_txtMaNCCActionPerformed
 
     /**
      * @param args the command line arguments

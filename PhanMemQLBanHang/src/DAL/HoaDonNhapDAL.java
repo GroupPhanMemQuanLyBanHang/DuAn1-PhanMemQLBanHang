@@ -53,5 +53,10 @@ public class HoaDonNhapDAL {
         rs = ConnectionDB.ExcuteQueryGetTable(cauTruyVan);
         return rs;
     }
-      
+    public static ResultSet LayMaNCC() {
+        ResultSet rs;
+        String cauTruyVan = "select MaNhaCungCap from NhaCungCap";
+        rs = ConnectionDB.ExcuteQueryGetTable(cauTruyVan);
+        return rs;
+    }  
 }

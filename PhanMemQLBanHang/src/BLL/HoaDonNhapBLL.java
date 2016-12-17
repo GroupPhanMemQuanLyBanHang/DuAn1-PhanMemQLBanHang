@@ -90,4 +90,9 @@ public class HoaDonNhapBLL {
         rs = HoaDonNhapDAL.LayMaNV();
         return rs;  
     }
+    public static ResultSet LayMaNCC() {     
+        ResultSet rs;
+        rs = HoaDonNhapDAL.LayMaNCC();
+        return rs;  
+    }
 }
