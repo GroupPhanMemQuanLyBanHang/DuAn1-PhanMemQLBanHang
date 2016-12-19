@@ -57,23 +57,22 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnthem" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="lblngay" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="spnngay1" min="-2" pref="111" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="spnngaay2" min="-2" pref="119" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="spnngay2" min="-2" pref="119" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="cbbthuchi" min="-2" pref="132" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="txttimkiem" min="-2" pref="164" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnin" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnIn" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jScrollPane1" alignment="0" min="-2" pref="1127" max="-2" attributes="0"/>
                           </Group>
@@ -108,11 +107,10 @@
                           <Component id="lblngay" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="spnngay1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="spnngaay2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="spnngay2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cbbthuchi" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txttimkiem" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnin" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnthem" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnIn" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -163,14 +161,6 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="btnthem">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Images/Them.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="lblngay">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ng&#xe0;y:"/>
@@ -183,7 +173,7 @@
                 <Property name="text" type="java.lang.String" value="-"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="spnngaay2">
+            <Component class="javax.swing.JSpinner" name="spnngay2">
             </Component>
             <Component class="javax.swing.JComboBox" name="cbbthuchi">
               <Properties>
@@ -208,7 +198,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txttimkiemActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnin">
+            <Component class="javax.swing.JButton" name="btnIn">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Images/Print.png"/>

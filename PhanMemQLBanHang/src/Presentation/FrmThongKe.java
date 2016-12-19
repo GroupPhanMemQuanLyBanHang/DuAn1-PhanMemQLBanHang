@@ -34,22 +34,14 @@ public class FrmThongKe extends javax.swing.JFrame {
         tbploinhuancT = new javax.swing.JTabbedPane();
         jPanel38 = new javax.swing.JPanel();
         jPanel43 = new javax.swing.JPanel();
-        cbbngaythangnamTongquan = new javax.swing.JComboBox<String>();
-        spnngaytongquan = new javax.swing.JSpinner();
-        jLabel18 = new javax.swing.JLabel();
-        spntongquan2 = new javax.swing.JSpinner();
         jScrollPane16 = new javax.swing.JScrollPane();
         tbbtongquan = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtTimkiemBanHang = new javax.swing.JTextField();
         btnPrint = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Thống kê");
-
-        cbbngaythangnamTongquan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Theo ngày", "Theo tháng" }));
-
-        jLabel18.setText("-");
 
         tbbtongquan.setBackground(new java.awt.Color(240, 240, 240));
         tbbtongquan.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -83,20 +75,12 @@ public class FrmThongKe extends javax.swing.JFrame {
             jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel43Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cbbngaythangnamTongquan, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(spnngaytongquan, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(spntongquan2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(txtTimkiemBanHang, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnPrint)
-                .addContainerGap(273, Short.MAX_VALUE))
+                .addContainerGap(690, Short.MAX_VALUE))
             .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel43Layout.createSequentialGroup()
                     .addContainerGap()
@@ -108,12 +92,8 @@ public class FrmThongKe extends javax.swing.JFrame {
             .addGroup(jPanel43Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbbngaythangnamTongquan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(spnngaytongquan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18)
-                    .addComponent(spntongquan2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTimkiemBanHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPrint))
                 .addContainerGap(343, Short.MAX_VALUE))
             .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,8 +143,8 @@ public class FrmThongKe extends javax.swing.JFrame {
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
         // TODO add your handling code here:
         MessageFormat Header = new MessageFormat("Report Print");
-        
-          MessageFormat Header1 = new MessageFormat("Report Print");
+
+        MessageFormat Header1 = new MessageFormat("Report Print");
         try {
             tbbtongquan.print(JTable.PrintMode.NORMAL, Header, Header1);
         } catch (java.awt.print.PrinterException e) {
@@ -209,16 +189,12 @@ public class FrmThongKe extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPrint;
-    private javax.swing.JComboBox<String> cbbngaythangnamTongquan;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JPanel jPanel38;
     private javax.swing.JPanel jPanel43;
     private javax.swing.JScrollPane jScrollPane16;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JSpinner spnngaytongquan;
-    private javax.swing.JSpinner spntongquan2;
     private javax.swing.JTable tbbtongquan;
     private javax.swing.JTabbedPane tbploinhuancT;
+    private javax.swing.JTextField txtTimkiemBanHang;
     // End of variables declaration//GEN-END:variables
 }

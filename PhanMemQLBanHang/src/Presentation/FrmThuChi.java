@@ -31,14 +31,13 @@ public class FrmThuChi extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbbthuchi = new javax.swing.JTable();
-        btnthem = new javax.swing.JButton();
         lblngay = new javax.swing.JLabel();
         spnngay1 = new javax.swing.JSpinner();
         jLabel1 = new javax.swing.JLabel();
-        spnngaay2 = new javax.swing.JSpinner();
+        spnngay2 = new javax.swing.JSpinner();
         cbbthuchi = new javax.swing.JComboBox<String>();
         txttimkiem = new javax.swing.JTextField();
-        btnin = new javax.swing.JButton();
+        btnIn = new javax.swing.JButton();
         btnxoa = new javax.swing.JButton();
         lbltongthu = new javax.swing.JLabel();
         lbltongchi = new javax.swing.JLabel();
@@ -68,9 +67,6 @@ public class FrmThuChi extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbbthuchi);
 
-        btnthem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Them.png"))); // NOI18N
-        btnthem.setText("Thêm");
-
         lblngay.setText("Ngày:");
 
         jLabel1.setText("-");
@@ -84,8 +80,8 @@ public class FrmThuChi extends javax.swing.JFrame {
             }
         });
 
-        btnin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Print.png"))); // NOI18N
-        btnin.setText("Print");
+        btnIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Print.png"))); // NOI18N
+        btnIn.setText("Print");
 
         btnxoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/huy.png"))); // NOI18N
         btnxoa.setText("Xóa");
@@ -105,23 +101,22 @@ public class FrmThuChi extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(btnthem)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addContainerGap()
                             .addComponent(lblngay)
-                            .addGap(10, 10, 10)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(spnngay1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(spnngaay2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(spnngay2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(cbbthuchi, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel3)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(txttimkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnin))
+                            .addComponent(btnIn))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1127, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,11 +141,10 @@ public class FrmThuChi extends javax.swing.JFrame {
                     .addComponent(lblngay)
                     .addComponent(spnngay1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(spnngaay2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spnngay2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbbthuchi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txttimkiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnin)
-                    .addComponent(btnthem)
+                    .addComponent(btnIn)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
@@ -302,8 +296,7 @@ public class FrmThuChi extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane ThuChi;
-    private javax.swing.JButton btnin;
-    private javax.swing.JButton btnthem;
+    private javax.swing.JButton btnIn;
     private javax.swing.JButton btnxoa;
     private javax.swing.JButton btnxoaa;
     private javax.swing.JComboBox<String> cbbthuchi;
@@ -318,8 +311,8 @@ public class FrmThuChi extends javax.swing.JFrame {
     private javax.swing.JLabel lblngay;
     private javax.swing.JLabel lbltongchi;
     private javax.swing.JLabel lbltongthu;
-    private javax.swing.JSpinner spnngaay2;
     private javax.swing.JSpinner spnngay1;
+    private javax.swing.JSpinner spnngay2;
     private javax.swing.JSpinner spnnhatkithuchi;
     private javax.swing.JSpinner spnnhatkithuchy;
     private javax.swing.JTable tbbnhatkithuchi;

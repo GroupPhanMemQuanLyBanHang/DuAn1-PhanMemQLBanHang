@@ -52,6 +52,7 @@ public class FrmHoaDon extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Hóa Đơn");
 
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\GitHub\\PhanMemQuanLyBanHang\\DuAn1-PhanMemQLBanHang\\PhanMemQLBanHang\\src\\Images\\Store.png")); // NOI18N
         jLabel1.setToolTipText("");
